@@ -1,0 +1,1046 @@
+============================================================
+llms-full.txt - DevUI Pencil Design System
+============================================================
+
+# 1. METADATA | 元数据
+PROJECT_NAME: DevUI Design System
+SOURCE_FORMAT: Pencil .pen (Design-as-Code)
+SYNC_TARGET: Angular (ng-devui) / Vue (vue-devui) / React
+LAYOUT_ENGINE: Pencil Auto Layout (Flex-compatible)
+PEN_FILE: designsystem/devUI/components/devUI.pen
+TOTAL_REUSABLE_COMPONENTS: 706
+COMPONENT_GROUPS: 60+
+DESIGN_SPEC_URL: https://devui.design/design-cn/start
+GITHUB_REPO: https://github.com/DevCloudFE/ng-devui
+VARIANT_NAMING_CONVENTION: "组件类型/变体Key=Value" (e.g., 按钮-主要/尺寸-Size=md, 状态-Status=default)
+
+============================================================
+# 2. GLOBAL DESIGN TOKENS | 全局设计令牌
+============================================================
+
+## 2.1 Color Palette | 色板
+
+### 2.1.1 Brand Colors | 品牌色
+TOKEN: devui-brand          | VALUE: #5e7ce0  | USAGE: 主要按钮、品牌色、选中态
+TOKEN: devui-brand-foil     | VALUE: #f2f5fc  | USAGE: 品牌色辅助底色（hover/选中底色）
+TOKEN: devui-brand-hover    | VALUE: #7693f5  | USAGE: 品牌色高亮（按钮hover）
+TOKEN: devui-brand-active   | VALUE: #526ecc  | USAGE: 品牌色激活（按钮active）
+
+### 2.1.2 Text Colors | 文字色
+TOKEN: devui-text           | VALUE: #252b3a  | USAGE: 主要文字、正文文本
+TOKEN: devui-text-weak      | VALUE: #575d6c  | USAGE: 弱化正文（表头、手风琴子项）
+TOKEN: devui-aide-text      | VALUE: #8a8e99  | USAGE: 次要文字、辅助文本（面包屑、占位符）
+TOKEN: devui-light-text     | VALUE: #ffffff  | USAGE: 深色背景上的文字
+TOKEN: devui-link           | VALUE: #5e7ce0  | USAGE: 链接文字色
+
+### 2.1.3 Background Colors | 背景色
+TOKEN: devui-base-bg        | VALUE: #ffffff  | USAGE: 基础白色背景
+TOKEN: devui-global-bg      | VALUE: #f5f5f5  | USAGE: 全局灰底背景
+TOKEN: devui-area           | VALUE: #f3f3f3  | USAGE: 可折叠区块背景
+TOKEN: devui-disabled-bg    | VALUE: #f3f3f3  | USAGE: 禁用背景
+TOKEN: devui-list-hover-bg  | VALUE: #f2f2f3  | USAGE: 列表项悬浮背景
+TOKEN: devui-list-active-bg | VALUE: #cedefd  | USAGE: 列表项选中背景
+
+### 2.1.4 Border Colors | 边框色
+TOKEN: devui-line           | VALUE: #adb0b8  | USAGE: 边框分割线（输入框、按钮次要）
+TOKEN: devui-dividing-line  | VALUE: #dfe1e6  | USAGE: 内容分割线（侧边栏边框、表格分割线）
+TOKEN: devui-form-active    | VALUE: #5e7ce0  | USAGE: 表单激活边框（focus状态）
+TOKEN: devui-form-hover     | VALUE: #575d6c  | USAGE: 表单控件hover边框
+
+### 2.1.5 Status Colors | 状态色
+TOKEN: devui-success        | VALUE: #50d4ab  | USAGE: 成功（绿色标签、输入框成功态）
+TOKEN: devui-danger         | VALUE: #f66f6a  | USAGE: 失败/错误
+TOKEN: devui-warning        | VALUE: #fac532  | USAGE: 警告
+TOKEN: devui-info           | VALUE: #5e7ce0  | USAGE: 信息/通知
+
+### 2.1.6 Tag-Specific Colors | 标签专用色
+TOKEN: tag-green-fill       | VALUE: #50d4ab  | USAGE: 绿色实心标签背景
+TOKEN: tag-green-light-fill | VALUE: #edfff9  | USAGE: 绿色辅助标签背景
+TOKEN: tag-green-text       | VALUE: #50d4ab  | USAGE: 绿色辅助/线性标签文字
+TOKEN: tag-orange-fill      | VALUE: #f2a238  | USAGE: 橙色实心标签
+TOKEN: tag-red-fill         | VALUE: #f66f6a  | USAGE: 红色标签
+TOKEN: tag-grey-fill        | VALUE: #f5f5f5  | USAGE: 灰色辅助标签
+TOKEN: tag-regular-fill     | VALUE: #f2f5fc  | USAGE: 常规标签背景
+
+### 2.1.7 DevUI Official Color Palette (from ng-devui source)
+BLUE:    #e6eeff → #cedefd → #9dbdfc → #6b9bfa → #3979f9 → #0a59f7 → #0950de → #0039bd → #002794 → #00196b → #000f42
+GREEN:   #e7fbf2 → #bcf2db → #8fe5c2 → #63d5a8 → #36c18d → #09aa71 → #058358 → #036142 → #02422e
+RED:     #fee7e8 → #fabdc1 → #f59297 → #ee696f → #e7434a → #e02128 → #c7000b → #850f12 → #59080a
+YELLOW:  #fefce0 → #fdf8b8 → #fef08a → #fde55c → #fcd72e → #fcc800 → #d19f00 → #9e7400 → #614500
+ORANGE:  #fef5e8 → #fde2bd → #fcce92 → #f9b766 → #f69e39 → #f4840c → #c76207 → #954304 → #642802
+SLATE:   #fafafa → #f5f5f5 → #f0f0f0 → #e6e6e6 → #dbdbdb → #c2c2c2 → #808080 → #595959 → #333333 → #191919 → #000000
+GRAY:    #f3f3f3 → #dfdfdf → #c9c9c9 → #aeaeae → #939393 → #777777 → #595959 → #393939 → #2a2a2a → #191919 → #000000
+
+## 2.2 Typography | 排版
+
+### Font Family
+PRIMARY: "Noto Sans SC" (中文优先)
+SECONDARY: "HarmonyOS Sans SC" (华为鸿蒙字体)
+LATIN: "Roboto"
+SYSTEM_FALLBACK: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif
+
+### Font Scale
+LEVEL: body-sm     | SIZE: 12px | WEIGHT: normal | LINE_HEIGHT: 1.67 (20px) | USAGE: 正文、卡片副标题、标签、描述文本
+LEVEL: body        | SIZE: 14px | WEIGHT: normal | LINE_HEIGHT: 1.57 (22px) | USAGE: 正文、卡片标题、按钮文本、菜单项
+LEVEL: body-strong | SIZE: 14px | WEIGHT: 500    | LINE_HEIGHT: 1.57 (22px) | USAGE: 筛选选中态、强调文本
+LEVEL: body-bold   | SIZE: 14px | WEIGHT: 700    | LINE_HEIGHT: 1.57 (22px) | USAGE: 侧边菜单active、标题强调
+LEVEL: subtitle    | SIZE: 15px | WEIGHT: normal | LINE_HEIGHT: auto        | USAGE: 侧边栏分组标题
+LEVEL: title       | SIZE: 16px | WEIGHT: 500    | LINE_HEIGHT: auto        | USAGE: 页面标题
+LEVEL: heading     | SIZE: 18px | WEIGHT: 700    | LINE_HEIGHT: auto        | USAGE: 弹窗标题、卡片大标题
+
+### ng-devui Font Tokens (Official)
+--devui-font-size: 12px                  // 正文、卡片副标题
+--devui-font-size-card-title: 14px       // 卡片标题
+--devui-font-size-page-title: 16px       // 页面标题
+--devui-font-size-modal-title: 18px      // 弹窗标题
+--devui-font-size-price: 20px            // 价格
+--devui-font-size-data-overview: 24px    // 数据总览
+--devui-font-size-h1-title: 28px
+--devui-font-size-h2-title: 24px
+--devui-font-size-h3-title: 20px
+--devui-font-size-h4-title: 18px
+--devui-font-size-h5-title: 16px
+--devui-font-size-sm: 12px              // Size=sm 组件字号
+--devui-font-size-md: 12px              // Size=md 组件字号
+--devui-font-size-lg: 14px              // Size=lg 组件字号
+--devui-font-title-weight: bold
+--devui-font-content-weight: normal
+--devui-line-height-base: 1.5
+
+## 2.3 Spacing System | 间距系统
+
+### Component Padding (top, right, bottom, left)
+BUTTON_PRIMARY_MD: [5px, 16px, 5px, 16px]
+BUTTON_PRIMARY_SM: [4px, 16px, 4px, 16px]
+BUTTON_SECONDARY_MD: [4px, 16px, 4px, 16px]
+BUTTON_ICON_TEXT: [4px, 8px, 4px, 8px]
+TAG_MD: [0, 8px, 0, 8px]
+SEARCH_BOX: [5px, 8px, 5px, 8px]
+CARD: [20px, 24px, 20px, 24px]
+SIDEBAR: [12px, 0, 12px, 8px]
+SIDEBAR_MENU: [9px, 20px, 9px, 12px]
+TOP_NAV: [0, 8px]
+FORM_ITEM: [12px, 5px, 12px, 5px]
+
+### Component Gap
+BUTTON_ICON_GAP: 4px
+TAG_INNER_GAP: 4px
+FORM_GROUP_GAP: 8px
+CARD_CONTENT_GAP: 16px
+CARD_SECTION_GAP: 20px
+PAGE_SECTION_GAP: 10px
+PAGINATION_GAP: 9px
+SIDEBAR_MENU_GAP: 7px
+
+## 2.4 Corner Radius | 圆角
+
+TOKEN: radius-xs    | VALUE: 2px   | USAGE: 复选框、侧边栏
+TOKEN: radius-sm    | VALUE: 4px   | USAGE: 按钮、标签、输入框、页码、二级菜单
+TOKEN: radius-md    | VALUE: 6px   | USAGE: 搜索框
+TOKEN: radius-lg    | VALUE: 8px   | USAGE: 卡片
+TOKEN: radius-pill  | VALUE: 16px  | USAGE: 圆角标签（特殊）
+TOKEN: radius-round | VALUE: 999px | USAGE: 头像、圆形按钮
+
+## 2.5 Shadows | 阴影
+
+TOKEN: shadow-card | VALUE: 0 1px 5.25px rgba(0,0,0,0.08)   | USAGE: 卡片、顶部导航
+TOKEN: shadow-overlay | VALUE: 0 4px 10.5px rgba(0,0,0,0.16) | USAGE: 下拉面板、弹出层
+TOKEN: shadow-sidebar | VALUE: 1px 0 7px rgba(25,25,25,0.06)  | USAGE: 侧边栏
+
+## 2.6 Stroke | 描边
+
+TOKEN: stroke-default   | THICKNESS: 1px     | COLOR: #adb0b8 | USAGE: 输入框、次要按钮边框
+TOKEN: stroke-divider   | THICKNESS: 1px     | COLOR: #dfe1e6 | USAGE: 分割线、侧边栏边框
+TOKEN: stroke-active    | THICKNESS: 2px     | COLOR: #5e7ce0 | USAGE: 侧边菜单active左侧指示条
+TOKEN: stroke-focus     | THICKNESS: 1px     | COLOR: #5e7ce0 | USAGE: 输入框focus状态
+TOKEN: stroke-danger    | THICKNESS: 1px     | COLOR: #f66f6a | USAGE: 输入框danger状态
+TOKEN: stroke-hover     | THICKNESS: 1px     | COLOR: #575d6c | USAGE: 输入框hover状态
+
+============================================================
+# 3. COMPONENT SPECIFICATIONS | 组件规范
+============================================================
+
+---
+COMPONENT: 按钮-主要 (Primary Button)
+PEN_PATH: designsystem/devUI/components/devUI.pen
+NODE_ID_EXAMPLE: RoYUx (尺寸-Size=md, 状态-Status=default)
+NODE_HIERARCHY:
+  └── frame [按钮-主要] (reusable=true)
+      ├── frame [新增（add）] 16×16 icon container
+      │   └── path [形状结合] icon shape
+      ├── text [主要按钮] content label
+      └── frame [下拉（chevron-down）] 16×16 optional dropdown icon
+          └── path [形状结合] chevron shape
+PROPERTIES: {
+  "type": "frame",
+  "layout": "horizontal (flex-direction: row)",
+  "alignItems": "center",
+  "justifyContent": "center",
+  "cornerRadius": [4,4,4,4],
+  "fill": "#5e7ce0",
+  "gap": 4,
+  "clip": true,
+  "stroke": { "align": "inside", "thickness": 1 }
+}
+SIZE_VARIANTS: {
+  "sm": { "padding": [4,16,4,16], "fontSize": 14 },
+  "md": { "padding": [5,16,5,16], "fontSize": 14 },
+  "lg": { "padding": [8,16,8,16], "fontSize": 14 }
+}
+STATUS_VARIANTS: {
+  "default":  { "fill": "#5e7ce0", "textColor": "#ffffff" },
+  "hover":    { "fill": "#7693f5", "textColor": "#ffffff" },
+  "active":   { "fill": "#526ecc", "textColor": "#ffffff" },
+  "disabled": { "fill": "#beccfa", "textColor": "#ffffff" }
+}
+CHILDREN_CONFIG: {
+  "icon_left": { "type": "frame", "size": 16, "fill": "#ffffff (icon path)" },
+  "label": { "type": "text", "fontFamily": "Noto Sans SC", "fontSize": 14, "fontWeight": "normal", "fill": "#ffffff" },
+  "icon_right": { "type": "frame", "size": 16, "optional": true, "fill": "#ffffff (chevron)" }
+}
+TRANSLATION_RULES:
+  - Map to: <d-button variant="primary" size="md|sm|lg">
+  - Icon: left/right slots or `icon` prop
+  - Dropdown chevron: indicates combo/split button usage
+---
+
+---
+COMPONENT: 按钮-次要 (Secondary Button)
+PEN_PATH: designsystem/devUI/components/devUI.pen
+NODE_ID_EXAMPLE: qTc8e (尺寸-Size=md, 状态-Status=default)
+NODE_HIERARCHY:
+  └── frame [按钮-次要] (reusable=true)
+      ├── frame [新增（add）] 16×16 icon container
+      │   └── path [形状结合] icon shape
+      └── text [次要按钮] content label
+PROPERTIES: {
+  "type": "frame",
+  "layout": "horizontal",
+  "alignItems": "center",
+  "cornerRadius": [4,4,4,4],
+  "fill": "#ffffff",
+  "gap": 4,
+  "stroke": { "align": "inside", "fill": "#adb0b8", "thickness": 1 }
+}
+SIZE_VARIANTS: {
+  "sm": { "padding": [4,16,4,16] },
+  "md": { "padding": [4,16,4,16] },
+  "lg": { "padding": [5,16,5,16] }
+}
+STATUS_VARIANTS: {
+  "default":  { "fill": "#ffffff", "stroke": "#adb0b8", "textColor": "#252b3a" },
+  "hover":    { "fill": "#ffffff", "stroke": "#5e7ce0", "textColor": "#5e7ce0" },
+  "active":   { "fill": "#ffffff", "stroke": "#526ecc", "textColor": "#526ecc" },
+  "disabled": { "fill": "#ffffff", "stroke": "#dfe1e6", "textColor": "#babbc0" }
+}
+TRANSLATION_RULES:
+  - Map to: <d-button variant="common" size="md|sm|lg">
+---
+
+---
+COMPONENT: 按钮-图标文本按钮 (Icon Text Button)
+PEN_PATH: designsystem/devUI/components/devUI.pen
+NODE_ID_EXAMPLE: hOrvp (尺寸-Size=md, 状态-Status=default)
+NODE_HIERARCHY:
+  └── frame [按钮-图标文本按钮] (reusable=true)
+      ├── frame [新增（add）] 16×16
+      ├── text [图标文本按钮] label
+      └── frame [下拉（chevron-down）] 16×16
+PROPERTIES: {
+  "type": "frame",
+  "layout": "horizontal",
+  "alignItems": "center",
+  "justifyContent": "center",
+  "gap": 4,
+  "padding": [4,8,4,8],
+  "fill": "transparent",
+  "stroke": { "align": "inside", "thickness": 1 }
+}
+STATUS_VARIANTS: {
+  "default":  { "textColor": "#252b3a" },
+  "hover":    { "textColor": "#5e7ce0" },
+  "active":   { "textColor": "#526ecc" },
+  "disabled": { "textColor": "#babbc0" }
+}
+TRANSLATION_RULES:
+  - Map to: <d-button variant="text-dark">
+  - No background, no border; text-only button with icon
+---
+
+---
+COMPONENT: 按钮-可下拉次要组合按钮 (Dropdown Combo Button)
+PEN_PATH: designsystem/devUI/components/devUI.pen
+NODE_ID_EXAMPLE: XE86l (状态-status=default, icon or number=icon, 尺寸=md)
+VARIANT_AXES: {
+  "status": ["default", "right-hover", "right-active", "left-hover", "left-active", "disabled"],
+  "icon or number": ["icon", "number"],
+  "尺寸": ["md", "sm"]
+}
+TRANSLATION_RULES:
+  - Map to: <d-button-group> with split dropdown
+  - Left part: main action; Right part: dropdown trigger
+  - "left-hover"/"right-hover" means hover on left/right side respectively
+---
+
+---
+COMPONENT: 文本输入框 (TextInput)
+PEN_PATH: designsystem/devUI/components/devUI.pen
+NODE_ID_EXAMPLE: jmCZP (状态-status=noContent)
+NODE_HIERARCHY:
+  └── frame [文本输入框] (reusable=true)
+      └── frame [Frame 38] (width: fill_container)
+          ├── rectangle [Rectangle 15] border container
+          └── text [请输入] placeholder text
+PROPERTIES: {
+  "type": "frame",
+  "layout": "horizontal",
+  "alignItems": "center",
+  "width": 296,
+  "gap": 10,
+  "fill": { "enabled": false }
+}
+INNER_INPUT: {
+  "cornerRadius": [4,4,4,4],
+  "fill": "#ffffff",
+  "stroke": { "fill": "#adb0b8", "thickness": 1 },
+  "height": 32,
+  "text": { "fontFamily": "Noto Sans SC", "fontSize": 14, "padding": [5,12] }
+}
+STATUS_VARIANTS: {
+  "noContent":          { "stroke": "#adb0b8", "text": "#8a8e99 (placeholder)" },
+  "hasContent":         { "stroke": "#c9c9c9", "text": "#252b3a" },
+  "hover":              { "stroke": "#575d6c" },
+  "focus":              { "stroke": "#5e7ce0" },
+  "input":              { "stroke": "#5e7ce0", "text": "#252b3a" },
+  "danger":             { "stroke": "#f66f6a" },
+  "Success":            { "stroke": "#50d4ab" },
+  "disabled":           { "fill": "#f5f5f5", "stroke": "#dfe1e6", "text": "#babbc0" },
+  "disabled-hasContent":{ "fill": "#f5f5f5", "stroke": "#dfe1e6", "text": "#babbc0" }
+}
+TRANSLATION_RULES:
+  - Map to: <d-input> or <input dTextInput>
+  - Width stretches with parent (fill_container)
+---
+
+---
+COMPONENT: 数字输入框 (NumberInput)
+PEN_PATH: designsystem/devUI/components/devUI.pen
+NODE_ID_EXAMPLE: 1ggPm (状态-status=default)
+NODE_HIERARCHY:
+  └── frame [数字输入框] (reusable=true, layout=none)
+      ├── rectangle [Rectangle 20] background/border
+      ├── frame [减 1] 16×16 decrease icon
+      ├── rectangle [divider left] 1×16
+      ├── frame [Frame 49] value display
+      │   └── text [2] number value
+      ├── rectangle [divider right] 1×16
+      └── frame [新增（add）] 16×16 increase icon
+PROPERTIES: {
+  "type": "frame",
+  "layout": "none (absolute positioning)",
+  "cornerRadius": [4,4,4,4],
+  "fill": "#ffffff",
+  "stroke": { "fill": "#575d6c", "thickness": 1 },
+  "width": 99,
+  "height": 32
+}
+STATUS_VARIANTS: {
+  "default":       { "stroke": "#575d6c" },
+  "hover":         { "stroke": "#5e7ce0" },
+  "left-hover":    { "left button bg": "#f2f5fc" },
+  "right-hover":   { "right button bg": "#f2f5fc" },
+  "left-active":   { "left button bg": "#5e7ce0", "icon": "#ffffff" },
+  "right-active":  { "right button bg": "#5e7ce0", "icon": "#ffffff" },
+  "disabled":      { "fill": "#f5f5f5", "text": "#babbc0" }
+}
+TRANSLATION_RULES:
+  - Map to: <d-input-number>
+  - Dividers between buttons and input area
+---
+
+---
+COMPONENT: 表单标题 (FormLabel)
+PEN_PATH: designsystem/devUI/components/devUI.pen
+NODE_ID_EXAMPLE: byJ1L (required=false, helpTips=false)
+VARIANT_AXES: {
+  "必选图标-required": [true, false],
+  "提示图标-helpTips": [true, false]
+}
+TRANSLATION_RULES:
+  - Map to: <label> with optional required asterisk (*) and help tooltip icon
+---
+
+---
+COMPONENT: 表单项-文本输入框 (FormItem - TextInput)
+PEN_PATH: designsystem/devUI/components/devUI.pen
+NODE_ID_EXAMPLE: Laiht
+VARIANT_AXES: {
+  "状态-status": ["noContent", "hasContent", "hover", "focus", "input", "danger", "Success", "disabled", "disabled-hasContent"],
+  "必选图标-required": [true, false],
+  "提示图标-helpTips": [true, false],
+  "是否展示辅助文本-showExtraInfo": [true, false],
+  "表单项名称-label": [true, false]
+}
+TOTAL_VARIANTS: 82
+TRANSLATION_RULES:
+  - Map to: <d-form-item> wrapping <d-input>
+  - Combines label + input + helper text in vertical layout
+---
+
+---
+COMPONENT: 复选框 (Checkbox)
+PEN_PATH: designsystem/devUI/components/devUI.pen
+NODE_ID_EXAMPLE: bzYOF (noChecked, default)
+NODE_HIERARCHY:
+  └── frame [复选框] (reusable=true, 16×16)
+      (internal checkbox visual)
+PROPERTIES: {
+  "type": "frame",
+  "layout": "none",
+  "cornerRadius": [2,2,2,2],
+  "fill": "#ffffff",
+  "stroke": { "fill": "#adb0b8", "thickness": 1 },
+  "width": 16,
+  "height": 16,
+  "clip": true
+}
+STATUS_VARIANTS: {
+  "noChecked+default":  { "fill": "#ffffff", "stroke": "#adb0b8" },
+  "noChecked+hover":    { "fill": "#ffffff", "stroke": "#5e7ce0" },
+  "noChecked+disabled": { "fill": "#f5f5f5", "stroke": "#dfe1e6" },
+  "checked+default":    { "fill": "#5e7ce0", "stroke": "#5e7ce0", "checkmark": "#ffffff" },
+  "checked+hover":      { "fill": "#7693f5", "checkmark": "#ffffff" },
+  "checked+disabled":   { "fill": "#beccfa", "checkmark": "#ffffff" },
+  "halfChecked+default":{ "fill": "#5e7ce0", "dash": "#ffffff" },
+  "halfChecked+hover":  { "fill": "#7693f5", "dash": "#ffffff" },
+  "halfChecked+disabled":{"fill": "#beccfa", "dash": "#ffffff" }
+}
+TRANSLATION_RULES:
+  - Map to: <d-checkbox>
+  - halfChecked = indeterminate state
+---
+
+---
+COMPONENT: 复选框文本组合 (Checkbox with Label)
+PEN_PATH: designsystem/devUI/components/devUI.pen
+NODE_ID_EXAMPLE: f0TO6
+PROPERTIES: {
+  "layout": "horizontal",
+  "alignItems": "center",
+  "gap": 8,
+  "children": ["checkbox_icon", "text_label"]
+}
+TRANSLATION_RULES:
+  - Map to: <d-checkbox label="文本">
+---
+
+---
+COMPONENT: 搜索框-线框白底风格 (Search Input)
+PEN_PATH: designsystem/devUI/components/devUI.pen
+NODE_ID_EXAMPLE: X93Mt (iconPosition=left, Status=default-noContent)
+NODE_HIERARCHY:
+  └── frame [搜索框-线框白底风格] (reusable=true)
+      └── frame [Frame 19] (width: fill_container)
+          ├── frame [search-new] 16×16 search icon
+          └── text [请输入搜索内容] placeholder
+PROPERTIES: {
+  "type": "frame",
+  "layout": "vertical",
+  "cornerRadius": [6,6,6,6],
+  "fill": "#ffffff",
+  "stroke": { "align": "center", "fill": "#adb0b8", "thickness": 1 },
+  "padding": [5,8,5,8],
+  "width": 296,
+  "clip": true
+}
+VARIANT_AXES: {
+  "搜索图标位置-iconPosition": ["left", "right"],
+  "状态-Status": ["default-noContent", "disabled", "disabled-entered", "default-contentpresent", "hover", "activation-inputPending", "activation-Entered"]
+}
+TRANSLATION_RULES:
+  - Map to: <d-search>
+  - iconPosition controls search icon placement
+---
+
+---
+COMPONENT: 标签 (Tag - Solid)
+PEN_PATH: designsystem/devUI/components/devUI.pen
+NODE_ID_EXAMPLE: PXlZz (Size=md, Color=green)
+PROPERTIES: {
+  "type": "frame",
+  "layout": "horizontal",
+  "alignItems": "center",
+  "justifyContent": "center",
+  "cornerRadius": [4,4,4,4],
+  "padding": [0,8,0,8],
+  "clip": true,
+  "fontSize": 12,
+  "fontWeight": "500"
+}
+COLOR_VARIANTS: {
+  "green":  { "fill": "#50d4ab", "textColor": "#ffffff" },
+  "orange": { "fill": "#f2a238", "textColor": "#ffffff" }
+}
+SIZE_VARIANTS: {
+  "md": { "height": 20 },
+  "lg": { "height": 24 }
+}
+TRANSLATION_RULES:
+  - Map to: <d-tag color="green|orange">
+---
+
+---
+COMPONENT: 辅助标签 (Tag - Light)
+PEN_PATH: designsystem/devUI/components/devUI.pen
+NODE_ID_EXAMPLE: wcoqv (Size=md, Color=green)
+PROPERTIES: {
+  "cornerRadius": [4,4,4,4],
+  "padding": [0,8,0,8],
+  "fontSize": 12,
+  "fontWeight": "normal"
+}
+COLOR_VARIANTS: {
+  "green": { "fill": "#edfff9", "textColor": "#50d4ab" },
+  "grey":  { "fill": "#f5f5f5", "textColor": "#8a8e99" }
+}
+TRANSLATION_RULES:
+  - Map to: <d-tag type="outline" color="green|grey">
+---
+
+---
+COMPONENT: 常规标签 (Tag - Regular)
+PEN_PATH: designsystem/devUI/components/devUI.pen
+NODE_ID_EXAMPLE: 6LAHt (Size=md)
+NODE_HIERARCHY:
+  └── frame [常规标签] (reusable=true)
+      ├── frame [setting] 16×16 optional left icon
+      ├── text [标签] label text
+      └── frame [close] 16×16 optional close icon
+PROPERTIES: {
+  "cornerRadius": [4,4,4,4],
+  "fill": "#f2f5fc",
+  "gap": 4,
+  "padding": 8,
+  "height": 20,
+  "fontSize": 12,
+  "textColor": "#252b3a"
+}
+TRANSLATION_RULES:
+  - Map to: <d-tag> (default variant)
+  - With optional left icon and closable icon
+---
+
+---
+COMPONENT: 线性标签 (Tag - Outline)
+PEN_PATH: designsystem/devUI/components/devUI.pen
+NODE_ID_EXAMPLE: rqTmW (Size=md, Color=green)
+PROPERTIES: {
+  "cornerRadius": [4,4,4,4],
+  "fill": "transparent",
+  "stroke": { "align": "center", "fill": "[color]", "thickness": 1 },
+  "padding": [0,8,0,8]
+}
+COLOR_VARIANTS: {
+  "green":  { "stroke": "#50d4ab", "textColor": "#50d4ab" },
+  "orange": { "stroke": "#f2a238", "textColor": "#f2a238" },
+  "red":    { "stroke": "#f66f6a", "textColor": "#f66f6a" }
+}
+---
+
+---
+COMPONENT: .页码 (Pagination Item)
+PEN_PATH: designsystem/devUI/components/devUI.pen
+NODE_ID_EXAMPLE: cluPJ (statuse=default, type=number)
+PROPERTIES: {
+  "type": "frame",
+  "layout": "none",
+  "cornerRadius": [4,4,4,4],
+  "width": 28,
+  "height": 28,
+  "clip": true,
+  "textAlign": "center",
+  "fontSize": 14
+}
+STATUS_VARIANTS: {
+  "default+number":  { "fill": "transparent", "textColor": "#8a8e99" },
+  "hover+number":    { "fill": "#f2f5fc", "textColor": "#5e7ce0" },
+  "active+number":   { "fill": "#f2f5fc", "textColor": "#5e7ce0" },
+  "disabled+number": { "fill": "transparent", "textColor": "#babbc0" }
+}
+---
+
+---
+COMPONENT: 分页 Pagination (Pagination)
+PEN_PATH: designsystem/devUI/components/devUI.pen
+NODE_ID_EXAMPLE: i5IDo (跳转=false)
+NODE_HIERARCHY:
+  └── frame [分页 Pagination] (reusable=true)
+      ├── frame [Frame 30] per-page selector group
+      │   ├── frame [下拉选择框] page size dropdown
+      │   └── text [条/页] suffix
+      ├── text [总条数：8] total count
+      ├── frame [Frame 31] prev button (chevron-left)
+      ├── frame [.页码] × N page items
+      ├── frame [Frame 32] next button (chevron-right)
+      └── (optional) frame [jump-to] jump input (when 跳转=true)
+PROPERTIES: {
+  "layout": "horizontal",
+  "alignItems": "center",
+  "gap": 9
+}
+TRANSLATION_RULES:
+  - Map to: <d-pagination [total]="8" [pageSize]="10" [canJumpPage]="false|true">
+---
+
+---
+COMPONENT: .基础面包屑组件 (BreadCrumb Item)
+PEN_PATH: designsystem/devUI/components/devUI.pen
+NODE_ID_EXAMPLE: VYkAv (Status=default)
+STATUS_VARIANTS: {
+  "default":  { "textColor": "#8a8e99" },
+  "hover":    { "textColor": "#5e7ce0" },
+  "active":   { "textColor": "#252b3a" },
+  "ellipsis": { "display": "..." }
+}
+---
+
+---
+COMPONENT: 面包屑组 (BreadCrumb Group)
+PEN_PATH: designsystem/devUI/components/devUI.pen
+NODE_ID_EXAMPLE: rC1xU (number=6)
+VARIANT_AXES: { "面包屑个数-number": [2,3,4,5,6,"ellipsis"] }
+TRANSLATION_RULES:
+  - Map to: <d-breadcrumb>
+  - separator can be default "/" or ">" icon
+---
+
+---
+COMPONENT: 页签 Pills (Tab - Pills Style)
+PEN_PATH: designsystem/devUI/components/devUI.pen
+NODE_ID_EXAMPLE: cjfjz (status=default)
+STATUS_VARIANTS: {
+  "default":  { "fill": "transparent", "textColor": "#252b3a" },
+  "hover":    { "fill": "#f2f5fc", "textColor": "#5e7ce0" },
+  "active":   { "fill": "#5e7ce0", "textColor": "#ffffff" },
+  "disabled": { "textColor": "#babbc0" }
+}
+---
+
+---
+COMPONENT: 下拉选择框 (Select)
+PEN_PATH: designsystem/devUI/components/devUI.pen
+VARIANT_AXES: {
+  "状态-status": ["default", "hover", "select", "disabled"],
+  "选择状态": ["已选择", "未选择"],
+  "下拉面板": ["开", "关"]
+}
+TOTAL_VARIANTS: 10
+NODE_HIERARCHY:
+  └── frame [下拉选择框] (reusable=true)
+      └── frame (contains select display and dropdown arrow)
+TRANSLATION_RULES:
+  - Map to: <d-select>
+---
+
+---
+COMPONENT: 下拉选项 (Select Option)
+PEN_PATH: designsystem/devUI/components/devUI.pen
+VARIANT_AXES: {
+  "状态-status": ["Default", "hover", "select", "disabled"],
+  "组件类型": ["多选", "单选", "分组标题", "分割线"]
+}
+TRANSLATION_RULES:
+  - Map to: <d-option> or <d-option-group>
+  - 多选: shows checkbox; 单选: shows text only; 分组标题: shows group header
+---
+
+---
+COMPONENT: 筛选 (Filter)
+PEN_PATH: designsystem/devUI/components/devUI.pen
+NODE_ID_EXAMPLE: JmGHs (status=hover, type=简易)
+NODE_HIERARCHY:
+  └── frame [筛选] (reusable=true)
+      ├── text [全部] filter label
+      └── frame [select-arrow] 14×14 dropdown indicator
+PROPERTIES: {
+  "layout": "horizontal",
+  "alignItems": "center",
+  "gap": 8,
+  "padding": [5,0,5,0],
+  "clip": true
+}
+VARIANT_AXES: {
+  "状态-status": ["default", "hover", "active", "active+hover"],
+  "类型-type": ["简易", "复杂"]
+}
+TRANSLATION_RULES:
+  - 简易: single dropdown filter
+  - 复杂: multi-level filter with panel
+---
+
+---
+COMPONENT: 表格/默认类 表头单项 (Table Header Cell)
+PEN_PATH: designsystem/devUI/components/devUI.pen
+VARIANT_AXES: {
+  "灰色背景-header-bg": [true, false],
+  "位置-position": ["startPosition", "middleItem", "endPosition"],
+  "内容类型-contentType": ["textContent", "checkboxContent", "statusContent", "operationContent"]
+}
+---
+
+---
+COMPONENT: 表格/默认类 表体单项 (Table Body Cell)
+PEN_PATH: designsystem/devUI/components/devUI.pen
+VARIANT_AXES: {
+  "位置-position": ["startPosition", "middleItem", "endPosition"],
+  "内容类型-contentType": ["textContent", "checkboxContent", "statusContent", "operationContent", "link"],
+  "状态-status": ["default", "hover", "active"]
+}
+---
+
+---
+COMPONENT: 表格 (Table)
+PEN_PATH: designsystem/devUI/components/devUI.pen
+VARIANT_AXES: {
+  "内容类型-contentType": ["singleLine", "tableWithDividers"],
+  "阴影-shadowType": [true, false]
+}
+TRANSLATION_RULES:
+  - Map to: <d-data-table>
+  - singleLine: compact single-line cells
+  - tableWithDividers: cells with horizontal dividers
+---
+
+---
+COMPONENT: 基本卡片 (Basic Card)
+PEN_PATH: designsystem/devUI/components/devUI.pen
+NODE_ID_EXAMPLE: 7ipso (状态=默认)
+NODE_HIERARCHY:
+  └── frame [基本卡片] (reusable=true)
+      ├── frame [Frame 81] content area
+      │   ├── frame [.标题] title row (with optional icon)
+      │   └── text [描述文本] description
+      └── frame [Frame 80] footer
+          ├── frame [Frame 79] meta info (e.g., user avatar, date)
+          └── frame [.信息展示] stats (e.g., stars, forks)
+PROPERTIES: {
+  "type": "frame",
+  "layout": "vertical",
+  "cornerRadius": [8,8,8,8],
+  "fill": "#ffffff",
+  "gap": 16,
+  "padding": [20,24,20,24],
+  "width": 320,
+  "effect": { "type": "shadow", "blur": 5.25, "color": "rgba(0,0,0,0.08)", "offset": {"x":0,"y":1} }
+}
+STATUS_VARIANTS: {
+  "默认":         { "standard appearance" },
+  "悬浮":         { "effect": "enhanced shadow" },
+  "悬浮-标题变蓝": { "effect": "enhanced shadow", "titleColor": "#5e7ce0" }
+}
+TRANSLATION_RULES:
+  - Map to: <d-card>
+  - Contains header (title), body (description), footer (meta + actions)
+---
+
+---
+COMPONENT: 带图卡片 (Image Card)
+PEN_PATH: designsystem/devUI/components/devUI.pen
+NODE_ID_EXAMPLE: rKwK1 (状态=默认)
+NODE_HIERARCHY:
+  └── frame [带图卡片] (reusable=true)
+      ├── frame [Frame 88] image container (164px height, clip)
+      │   └── rectangle [image] cover image
+      └── frame [Frame 81] content
+          ├── frame [.标题] title area
+          ├── text [描述] description text
+          └── frame [Frame 80] footer meta
+PROPERTIES: {
+  "layout": "vertical",
+  "cornerRadius": [8,8,8,8],
+  "fill": "#ffffff",
+  "gap": 20,
+  "padding": [0,0,20,0],
+  "width": 320,
+  "clip": true,
+  "effect": "shadow"
+}
+TRANSLATION_RULES:
+  - Map to: <d-card> with cover image slot
+---
+
+---
+COMPONENT: 顶部导航栏 (Top Navigation Bar)
+PEN_PATH: designsystem/devUI/components/devUI.pen
+NODE_ID_EXAMPLE: Rpv7B (种类=default)
+NODE_HIERARCHY:
+  └── frame [顶部导航栏] (reusable=true, width=1920)
+      ├── frame [Frame 205] left section
+      │   ├── frame [菜单按钮] hamburger/menu icon
+      │   ├── frame [Frame 201] logo area
+      │   ├── frame [Frame 202] breadcrumb/context
+      │   ├── frame [控制台] console link
+      │   ├── frame [定位] location indicator
+      │   └── frame [菜单组] main menu items
+      └── frame [Frame 203] right section
+          ├── frame [Frame 204] action icons
+          └── frame [头像信息] user avatar (28×28 round)
+PROPERTIES: {
+  "layout": "horizontal",
+  "justifyContent": "space_between",
+  "alignItems": "center",
+  "fill": "#ffffff",
+  "padding": [0,8],
+  "width": 1920,
+  "gap": 843,
+  "effect": { "type": "shadow", "blur": 5.25, "color": "rgba(0,0,0,0.08)", "offset": {"x":0,"y":1} }
+}
+TRANSLATION_RULES:
+  - Map to: <d-navbar> or custom header layout
+  - Full-width (1920px), fixed top
+---
+
+---
+COMPONENT: 侧边导航-手风琴 (Accordion Sidebar)
+PEN_PATH: designsystem/devUI/components/devUI.pen
+NODE_ID_EXAMPLE: kyl45
+NODE_HIERARCHY:
+  └── frame [侧边导航-手风琴/侧边栏] (reusable=true)
+      └── frame [Frame 194] (layout=vertical)
+          ├── frame [Frame 186] header (project selector + collapse)
+          └── frame [Frame 192] menu list (一级菜单组)
+PROPERTIES: {
+  "layout": "horizontal",
+  "justifyContent": "end",
+  "fill": "#ffffff",
+  "clip": true,
+  "width": 288,
+  "height": 904,
+  "padding": [12,0,12,8]
+}
+CHILDREN_COMPONENTS:
+  - .一级 (first-level menu item, 5 states)
+  - .二级 (second-level menu item, 8 variants)
+  - .一级菜单展开 (expandable group, 8 variants)
+  - 一级菜单组 (menu group, 1-9 items)
+TRANSLATION_RULES:
+  - Map to: <d-accordion> within sidebar layout
+---
+
+---
+COMPONENT: .二级菜单-展开 (Sidebar Second-level Menu - Expanded)
+PEN_PATH: designsystem/devUI/components/devUI.pen
+NODE_ID_EXAMPLE: bBhoE (status=default)
+NODE_HIERARCHY:
+  └── frame [.二级菜单-展开] (reusable=true)
+      └── frame [Frame 143] (layout=horizontal)
+          ├── frame [codehub-card-mode] 16×16 icon
+          └── text [二级菜单] label
+PROPERTIES: {
+  "layout": "vertical",
+  "cornerRadius": [4,4,4,4],
+  "gap": 10,
+  "padding": [9,20,9,12],
+  "width": 184
+}
+STATUS_VARIANTS: {
+  "default": { "fill": "transparent", "textColor": "#000000", "fontWeight": "normal" },
+  "hover":   { "fill": "#f2f5fc", "textColor": "#000000", "fontWeight": "normal" },
+  "active":  { "fill": "#f2f5fc", "textColor": "#000000", "fontWeight": "700", "stroke": { "left": 2, "fill": "#5e7ce0" } }
+}
+TRANSLATION_RULES:
+  - active state has left border indicator (2px blue)
+---
+
+---
+COMPONENT: 工具链专用导航 (Toolchain Sidebar)
+PEN_PATH: designsystem/devUI/components/devUI.pen
+NODE_ID_EXAMPLE: BBmtw (展开=off)
+PROPERTIES: {
+  "layout": "vertical",
+  "justifyContent": "space_between",
+  "fill": "#ffffff",
+  "cornerRadius": [2,2,2,2],
+  "width": 48,
+  "height": 620,
+  "padding": [12,0],
+  "stroke": { "fill": "#dfe1e6", "thickness": { "bottom": 1, "left": 1 } },
+  "effect": { "type": "shadow", "blur": 7, "color": "rgba(25,25,25,0.06)", "offset": {"x":1,"y":0} }
+}
+VARIANT_AXES: { "展开": ["on", "off"] }
+TRANSLATION_RULES:
+  - 展开=off: collapsed sidebar (48px wide, icon-only)
+  - 展开=on: expanded sidebar with labels
+---
+
+---
+COMPONENT: 表单组件 (Form Component)
+PEN_PATH: designsystem/devUI/components/devUI.pen
+NODE_ID_EXAMPLE: PQwRQ
+VARIANT_AXES: {
+  "是否展示辅助文本-showExtraInfo": [true, false],
+  "组件类型": ["下拉选择", "输入框"],
+  "按钮": [true, false]
+}
+TRANSLATION_RULES:
+  - Composite form field: label + input/select + optional button + optional helper text
+---
+
+============================================================
+# 4. TRANSFORMATION RULES | 转换规则
+============================================================
+
+## 4.1 Layout Rules | 布局规则
+1. Frames with `layout: "horizontal"` → `display: flex; flex-direction: row`
+2. Frames with `layout: "vertical"` → `display: flex; flex-direction: column`
+3. Frames with `layout: "none"` → children use absolute positioning (x, y)
+4. `alignItems: "center"` → `align-items: center`
+5. `justifyContent: "center"` → `justify-content: center`
+6. `justifyContent: "space_between"` → `justify-content: space-between`
+7. `justifyContent: "end"` → `justify-content: flex-end`
+8. `gap: N` → `gap: Npx`
+9. `padding: [T, R, B, L]` → `padding: Tpx Rpx Bpx Lpx`
+10. `padding: N` → `padding: Npx`
+11. `width: "fill_container"` → `flex: 1` or `width: 100%`
+
+## 4.2 Visual Property Rules | 视觉属性规则
+1. `cornerRadius: [TL, TR, BR, BL]` → `border-radius: TLpx TRpx BRpx BLpx`
+2. `fill: "#hex"` → `background-color: #hex`
+3. `fill: { "enabled": false }` → `background: transparent`
+4. `stroke: { "fill": "#hex", "thickness": 1 }` → `border: 1px solid #hex`
+5. `stroke: { "thickness": { "left": 2 } }` → `border-left: 2px solid [color]`
+6. `clip: true` → `overflow: hidden`
+7. `effect: { "type": "shadow", ... }` → `box-shadow: [offset-x] [offset-y] [blur] [color]`
+
+## 4.3 Text Property Rules | 文字属性规则
+1. `fontFamily: "Noto Sans SC"` → `font-family: "Noto Sans SC", sans-serif`
+2. `fontSize: 14` → `font-size: 14px`
+3. `fontWeight: "normal"` → `font-weight: 400`
+4. `fontWeight: "500"` → `font-weight: 500`
+5. `fontWeight: "700"` → `font-weight: 700`
+6. `lineHeight: 1.57` → `line-height: 1.57` (22px for 14px font)
+7. `textAlign: "center"` → `text-align: center`
+8. `textGrowth: "fixed-width"` → `width: [explicit value]; white-space: normal`
+9. `textGrowth: "fixed-width-height"` → `width: [value]; height: [value]; overflow: hidden`
+10. `content: "..."` → text inner content
+
+## 4.4 Component Mapping Rules | 组件映射规则
+
+| Pencil Component (组件) | ng-devui Component | CSS Pattern |
+|:---|:---|:---|
+| 按钮-主要 | `<d-button bsStyle="primary">` | Solid bg + white text |
+| 按钮-次要 | `<d-button bsStyle="common">` | White bg + border |
+| 按钮-图标文本按钮 | `<d-button bsStyle="text-dark">` | Transparent + icon |
+| 文本输入框 | `<input dTextInput>` | Border input field |
+| 数字输入框 | `<d-input-number>` | Input with +/- buttons |
+| 复选框 | `<d-checkbox>` | 16×16 check box |
+| 搜索框 | `<d-search>` | Search with icon |
+| 下拉选择框 | `<d-select>` | Dropdown selector |
+| 标签 | `<d-tag>` | Pill/badge label |
+| 分页 | `<d-pagination>` | Page navigation |
+| 面包屑 | `<d-breadcrumb>` | Path trail |
+| 页签 Pills | `<d-tabs type="pills">` | Pill tabs |
+| 页签 Tabs | `<d-tabs>` | Underline tabs |
+| 页签 Wrapped | `<d-tabs type="wrapped">` | Wrapped tabs |
+| 筛选 | `<d-filter>` or custom | Filter dropdown |
+| 表格 | `<d-data-table>` | Data table |
+| 卡片 | `<d-card>` | Content card |
+| 顶部导航栏 | `<d-navbar>` or custom | Top nav bar |
+| 侧边导航-手风琴 | `<d-accordion>` | Collapsible sidebar |
+| 工具链专用导航 | Custom sidebar | Icon rail sidebar |
+| 表单项 | `<d-form-item>` | Label + control group |
+
+## 4.5 Reusable Component Rules | 可复用组件规则
+1. `reusable: true` → treat as component definition (not raw div)
+2. `enabled: false` on children → conditional rendering (v-if / *ngIf)
+3. Variant naming "Key=Value" → component props/inputs
+4. 以"."开头的组件名 → internal/private sub-component, not directly exposed
+5. Component instances (refs) → use design system component with overridden slots
+
+============================================================
+# 5. FORBIDDEN PATTERNS | 禁用模式
+============================================================
+
+1. NO hardcoded absolute x/y when Auto Layout (flex) is active
+   - Exception: `layout: "none"` containers (e.g., 数字输入框)
+2. NO direct Node ID references in generated code; use semantic names
+3. NO raw hex colors in generated code; map to design tokens first:
+   - #5e7ce0 → devui-brand / devui-primary
+   - #252b3a → devui-text
+   - #8a8e99 → devui-aide-text / devui-placeholder
+   - #adb0b8 → devui-line / devui-form-control-line
+   - #dfe1e6 → devui-dividing-line
+   - #f2f5fc → devui-brand-foil / devui-list-item-active-bg
+   - #50d4ab → devui-success
+   - #f66f6a → devui-danger
+   - #fac532 → devui-warning
+   - #babbc0 → devui-disabled-text
+   - #f5f5f5 → devui-disabled-bg / devui-global-bg
+4. NO arbitrary border-radius values; use defined tokens (2/4/6/8/999)
+5. NO font sizes outside the defined scale (12/14/15/16/18/20/24/28)
+6. NO assuming "sm"/"md"/"lg" padding without checking .pen data
+7. NO ignoring `enabled: false` nodes — they represent configurable options
+8. NO using `margin` for spacing — use `gap` and `padding` only
+9. NO skipping the shadow effect on cards and navigation — it's a core visual pattern
+
+============================================================
+# 6. VARIANT NAMING CONVENTION | 变体命名规范
+============================================================
+
+FORMAT: 组件类型/变体Key=Value[, 变体Key2=Value2, ...]
+
+EXAMPLES:
+  - 按钮-主要/尺寸-Size=md, 状态-Status=default
+  - 复选框/选择状态-status=checked, 组件状态-componentStatus=hover
+  - 搜索框-线框白底风格/搜索图标位置-iconPosition=left, 状态-Status=hover
+  - .工具链专用导航-展开/状态-status=default, 展开=on, 二级菜单数量=3
+
+NAMING_RULES:
+  - "/" separates component type from variant properties
+  - "," separates multiple variant axes
+  - "=" separates key from value
+  - Keys are bilingual: "尺寸-Size", "状态-Status", "颜色-Color"
+  - "." prefix means internal/private sub-component
+  - Status values: default, hover, active, disabled, focus, select
+  - Size values: sm, md, lg
+
+============================================================
+# 7. LAYOUT PATTERNS | 布局模式
+============================================================
+
+## 7.1 Top Navigation Bar Pattern
+- Full width (1920px)
+- Height: ~40px (auto from padding)
+- Left: logo + menu, Right: actions + avatar
+- Shadow: soft bottom shadow
+- `justify-content: space-between`
+
+## 7.2 Sidebar Pattern (Accordion)
+- Width: 288px (expanded) / 48px (collapsed)
+- Height: fills viewport (904px in design)
+- Contains expandable menu groups
+- Active item: left blue border (2px #5e7ce0) + bold text + light blue bg
+
+## 7.3 Card Grid Pattern
+- Card width: 320px
+- Card padding: 20px 24px
+- Card gap: 16-20px
+- Corner radius: 8px
+- Shadow: subtle elevation
+
+## 7.4 Form Layout Pattern
+- Vertical stack of form items
+- Label above input
+- Optional: required asterisk, help icon, helper text below
+- Input full-width within form column
+
+## 7.5 Table Pattern
+- Full-width container
+- Header: optional gray background
+- Body: alternating/plain rows
+- Cells: text, checkbox, status, link, operation types
+- Merged cells supported for complex layouts
+
+============================================================
+# END OF DOCUMENT
+============================================================

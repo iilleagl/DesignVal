@@ -1,0 +1,10 @@
+# macOS
+.DS_Store
+
+# IDE / Editor
+.idea/
+*.swp
+*.swo
+
+# Optional: uncomment if you use node and want to ignore
+# node_modules/

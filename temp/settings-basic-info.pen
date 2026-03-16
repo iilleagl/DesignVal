@@ -1,0 +1,366 @@
+{
+  "version": "2.8",
+  "children": [
+    {
+      "type": "frame",
+      "id": "screen0",
+      "x": 0,
+      "y": 0,
+      "name": "设置-基本信息",
+      "width": 1440,
+      "height": 900,
+      "fill": "#f5f5f5",
+      "layout": "vertical",
+      "children": [
+        {
+          "id": "Ljp6y",
+          "type": "ref",
+          "ref": "devui:Rpv7B",
+          "width": "fill_container",
+          "height": 48,
+          "name": "topBar",
+          "x": 0,
+          "y": 0,
+          "descendants": {
+            "devui:F1txK": {
+              "y": 8
+            },
+            "devui:eW1kQ": {
+              "width": "fit_content"
+            },
+            "devui:3tONU": {
+              "content": "设置"
+            },
+            "devui:k4IyA": {
+              "width": "fit_content"
+            },
+            "devui:TwSKZ": {
+              "x": 107
+            },
+            "devui:3mbtD": {
+              "width": "fit_content"
+            },
+            "devui:fCIRi": {
+              "width": "fit_content"
+            },
+            "devui:FzJmt": {
+              "width": "fit_content"
+            },
+            "devui:oT80o": {
+              "x": 64
+            },
+            "devui:S8P2t": {
+              "width": "fit_content",
+              "x": 96
+            },
+            "devui:SMlb0": {
+              "width": "fit_content"
+            },
+            "devui:DSKY4": {
+              "x": 78
+            },
+            "devui:lGWtM": {
+              "x": 1257,
+              "y": 4
+            }
+          }
+        },
+        {
+          "type": "frame",
+          "id": "jepvP",
+          "name": "bodyRow",
+          "width": "fill_container",
+          "height": "fill_container",
+          "fill": "#f5f5f5",
+          "children": [
+            {
+              "id": "wcRVh",
+              "type": "ref",
+              "ref": "devui:JGEqF",
+              "width": 192,
+              "height": "fill_container",
+              "name": "leftNav",
+              "x": 0,
+              "y": 0,
+              "descendants": {
+                "devui:AymsU": {
+                  "width": "fill_container"
+                },
+                "devui:TYMKt": {
+                  "content": "通用配置"
+                },
+                "devui:VPoTW": {
+                  "content": "基本信息"
+                },
+                "devui:PNTzK": {
+                  "width": "fit_content"
+                },
+                "devui:N3rDd": {
+                  "width": "fit_content"
+                },
+                "devui:upMAV": {
+                  "content": "搜索菜单项"
+                },
+                "devui:7RWOe": {
+                  "content": "设置",
+                  "width": "fill_container"
+                },
+                "devui:cN0qz": {
+                  "x": 223
+                },
+                "devui:QuS45": {
+                  "x": 160,
+                  "y": 808
+                }
+              }
+            },
+            {
+              "type": "frame",
+              "id": "HEZ6z",
+              "name": "mainContent",
+              "width": "fill_container",
+              "height": "fill_container",
+              "fill": "#ffffff",
+              "layout": "vertical",
+              "gap": 24,
+              "padding": [
+                24,
+                32
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "6VauA",
+                  "name": "pageTitle",
+                  "fill": "#191919",
+                  "content": "基本信息",
+                  "fontFamily": "Noto Sans SC",
+                  "fontSize": 16,
+                  "fontWeight": "500"
+                },
+                {
+                  "type": "frame",
+                  "id": "GlnYw",
+                  "name": "cardOrg",
+                  "width": "fill_container",
+                  "fill": "#ffffff",
+                  "cornerRadius": 8,
+                  "stroke": {
+                    "align": "inside",
+                    "thickness": 1,
+                    "fill": "#e6e6e6"
+                  },
+                  "layout": "vertical",
+                  "gap": 20,
+                  "padding": 24,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "sirx1",
+                      "name": "orgSectionTitle",
+                      "fill": "#191919",
+                      "content": "组织信息",
+                      "fontFamily": "Noto Sans SC",
+                      "fontSize": 14,
+                      "fontWeight": "500"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "XLPy9",
+                      "name": "iconRow",
+                      "width": "fill_container",
+                      "gap": 12,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "bkx00",
+                          "name": "iconLabel",
+                          "fill": "#191919",
+                          "content": "组织图标",
+                          "fontFamily": "Noto Sans SC",
+                          "fontSize": 14,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "IY29R",
+                          "name": "iconSetting",
+                          "fill": "#0A59F7",
+                          "content": "设置",
+                          "fontFamily": "Noto Sans SC",
+                          "fontSize": 14,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "id": "CaLVf",
+                      "type": "ref",
+                      "ref": "devui:Laiht",
+                      "width": "fill_container",
+                      "name": "input1",
+                      "x": 24,
+                      "y": 104,
+                      "descendants": {
+                        "devui:SbwSK": {
+                          "content": "请输入组织名称"
+                        },
+                        "devui:XGPPr": {
+                          "content": "组织名称"
+                        }
+                      }
+                    },
+                    {
+                      "id": "LDm8W",
+                      "type": "ref",
+                      "ref": "devui:Laiht",
+                      "width": "fill_container",
+                      "name": "input2",
+                      "x": 24,
+                      "y": 214,
+                      "descendants": {
+                        "devui:SbwSK": {
+                          "content": "请输入组织域名"
+                        },
+                        "devui:XGPPr": {
+                          "content": "组织域名"
+                        }
+                      }
+                    },
+                    {
+                      "id": "c1Kb2",
+                      "type": "ref",
+                      "ref": "devui:Laiht",
+                      "width": "fill_container",
+                      "name": "input3",
+                      "x": 24,
+                      "y": 324,
+                      "descendants": {
+                        "devui:SbwSK": {
+                          "content": "请选择区域"
+                        },
+                        "devui:XGPPr": {
+                          "content": "区域"
+                        }
+                      }
+                    },
+                    {
+                      "id": "6hHW4",
+                      "type": "ref",
+                      "ref": "devui:Laiht",
+                      "width": "fill_container",
+                      "name": "input4",
+                      "x": 24,
+                      "y": 434,
+                      "descendants": {
+                        "devui:SbwSK": {
+                          "content": "请输入组织描述（可选）"
+                        },
+                        "devui:XGPPr": {
+                          "content": "组织描述"
+                        }
+                      }
+                    },
+                    {
+                      "type": "frame",
+                      "id": "evCzx",
+                      "name": "btnRow",
+                      "width": "fill_container",
+                      "gap": 12,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "id": "0NRNf",
+                          "type": "ref",
+                          "ref": "devui:RoYUx",
+                          "fill": "#0A59F7",
+                          "name": "btnSave",
+                          "width": "fit_content",
+                          "x": 0,
+                          "y": 0,
+                          "descendants": {
+                            "devui:kPfIZ": {
+                              "content": "保存"
+                            },
+                            "devui:VF4Xo": {
+                              "x": 68
+                            }
+                          }
+                        },
+                        {
+                          "id": "D0KlV",
+                          "type": "ref",
+                          "ref": "devui:qTc8e",
+                          "name": "btnCancel",
+                          "width": "fit_content",
+                          "x": 112,
+                          "y": 1,
+                          "descendants": {
+                            "devui:gndIw": {
+                              "content": "取消"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "1hYwi",
+                  "name": "deleteSection",
+                  "width": "fill_container",
+                  "fill": "#00000000",
+                  "layout": "vertical",
+                  "gap": 16,
+                  "padding": [
+                    24,
+                    0
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "CMNYs",
+                      "name": "deleteWarning",
+                      "fill": "#595959",
+                      "content": "删除组织后，该组织下的所有项目与数据将被永久删除，且无法恢复。请谨慎操作。",
+                      "lineHeight": 1.57,
+                      "fontFamily": "Noto Sans SC",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "id": "2olW0",
+                      "type": "ref",
+                      "ref": "devui:qTc8e",
+                      "fill": "#e02128",
+                      "stroke": {
+                        "align": "inside",
+                        "thickness": 1,
+                        "fill": "#e02128"
+                      },
+                      "name": "btnDelete",
+                      "width": "fit_content",
+                      "x": 0,
+                      "y": 62,
+                      "descendants": {
+                        "devui:gndIw": {
+                          "content": "删除组织",
+                          "fill": "#ffffff"
+                        }
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "imports": {
+    "devui": "../designsystem/devUI/components/devUI2.pen"
+  }
+}

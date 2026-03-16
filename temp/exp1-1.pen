@@ -1,0 +1,708 @@
+{
+  "version": "2.8",
+  "children": [
+    {
+      "type": "frame",
+      "id": "CCNh0",
+      "x": 0,
+      "y": 0,
+      "name": "代码托管-仓库列表",
+      "width": 1920,
+      "height": 1080,
+      "fill": "#ffffff",
+      "layout": "vertical",
+      "children": [
+        {
+          "id": "RM44s",
+          "type": "ref",
+          "ref": "devui:Rpv7B",
+          "width": "fill_container",
+          "height": 56,
+          "name": "topBarRef",
+          "x": 0,
+          "y": 0,
+          "descendants": {
+            "devui:F1txK": {
+              "y": 12
+            },
+            "devui:eW1kQ": {
+              "width": "fit_content"
+            },
+            "devui:3tONU": {
+              "content": "控制台"
+            },
+            "devui:k4IyA": {
+              "width": "fit_content"
+            },
+            "devui:9xjAF": {
+              "content": "华北-北京四"
+            },
+            "devui:TwSKZ": {
+              "x": 107
+            },
+            "devui:3mbtD": {
+              "width": "fit_content"
+            },
+            "devui:fCIRi": {
+              "width": "fit_content"
+            },
+            "devui:FzJmt": {
+              "width": "fit_content"
+            },
+            "devui:UbeJd": {
+              "content": "首页"
+            },
+            "devui:oT80o": {
+              "x": 64
+            },
+            "devui:S8P2t": {
+              "width": "fit_content",
+              "x": 96
+            },
+            "devui:SMlb0": {
+              "width": "fit_content"
+            },
+            "devui:xIj4m": {
+              "content": "工作台"
+            },
+            "devui:DSKY4": {
+              "x": 78
+            },
+            "devui:lGWtM": {
+              "y": 8
+            }
+          }
+        },
+        {
+          "type": "frame",
+          "id": "d8wyB",
+          "name": "业务导航",
+          "width": "fill_container",
+          "fill": "#ffffff",
+          "stroke": {
+            "align": "inside",
+            "thickness": {
+              "bottom": 1
+            },
+            "fill": "#dfe1e6"
+          },
+          "gap": 24,
+          "padding": [
+            16,
+            24
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "XO9ZC",
+              "name": "代码托管图标",
+              "width": 48,
+              "height": 48,
+              "fill": "#5e7ce0",
+              "cornerRadius": 8,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "rntQs",
+                  "name": "iconLabel",
+                  "fill": "#ffffff",
+                  "content": "码",
+                  "textAlign": "center",
+                  "fontFamily": "Noto Sans SC",
+                  "fontSize": 20,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "uUkAA",
+              "name": "标题区",
+              "layout": "vertical",
+              "gap": 4,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "HcarU",
+                  "name": "titleText",
+                  "fill": "#252b3a",
+                  "content": "代码托管",
+                  "fontFamily": "Noto Sans SC",
+                  "fontSize": 18,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "4wnbQ",
+                  "name": "stat1",
+                  "fill": "#8a8e99",
+                  "content": "租户存储空间 120 GB",
+                  "fontFamily": "Noto Sans SC",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "VdRHC",
+                  "name": "stat2",
+                  "fill": "#8a8e99",
+                  "content": "租户仓库 28 个",
+                  "fontFamily": "Noto Sans SC",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "id": "OFOB9",
+              "type": "ref",
+              "ref": "devui:qTc8e",
+              "width": "fit_content",
+              "height": 32,
+              "name": "btnSSH",
+              "x": 234,
+              "y": 34,
+              "descendants": {
+                "devui:natD9": {
+                  "y": 8
+                },
+                "devui:gndIw": {
+                  "y": 5,
+                  "content": "设置我的SSH密钥"
+                }
+              }
+            },
+            {
+              "type": "frame",
+              "id": "vl4Kw",
+              "name": "占位",
+              "width": "fill_container",
+              "height": 1
+            },
+            {
+              "id": "GhX93",
+              "type": "ref",
+              "ref": "devui:qTc8e",
+              "width": "fit_content",
+              "height": 32,
+              "name": "btnHTTPS",
+              "x": 1543,
+              "y": 34,
+              "descendants": {
+                "devui:natD9": {
+                  "y": 8
+                },
+                "devui:gndIw": {
+                  "y": 5,
+                  "content": "设置我的HTTPS密码"
+                }
+              }
+            },
+            {
+              "id": "xpSJD",
+              "type": "ref",
+              "ref": "devui:qTc8e",
+              "width": "fit_content",
+              "height": 32,
+              "name": "btnIP",
+              "x": 1747,
+              "y": 34,
+              "descendants": {
+                "devui:natD9": {
+                  "y": 8
+                },
+                "devui:gndIw": {
+                  "y": 5,
+                  "content": "租户级IP白名单"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "xmLBQ",
+          "name": "主体",
+          "width": "fill_container",
+          "height": "fill_container",
+          "children": [
+            {
+              "id": "DmsvU",
+              "type": "ref",
+              "ref": "devui:JGEqF",
+              "width": 230,
+              "height": "fill_container",
+              "name": "leftNavRef",
+              "x": 0,
+              "y": 0,
+              "descendants": {
+                "devui:TYMKt": {
+                  "content": "仓库"
+                },
+                "devui:VPoTW": {
+                  "content": "仓库"
+                },
+                "devui:MsQDR": {
+                  "content": "我关注的"
+                },
+                "devui:Anj2M": {
+                  "content": "我参与的"
+                },
+                "devui:PNTzK": {
+                  "width": "fit_content"
+                },
+                "devui:N3rDd": {
+                  "width": "fit_content"
+                },
+                "devui:BC7uq": {
+                  "content": "我创建的"
+                },
+                "devui:jNQq9": {
+                  "content": "任务列表"
+                },
+                "devui:lx9V9": {
+                  "content": "合并请求"
+                },
+                "devui:Y4zIz": {
+                  "content": "代码托管"
+                },
+                "devui:upMAV": {
+                  "content": "在当前项目内搜索"
+                },
+                "devui:lFKg6": {
+                  "content": ""
+                },
+                "devui:7RWOe": {
+                  "width": "fill_container",
+                  "content": "代码托管"
+                },
+                "devui:cN0qz": {
+                  "x": 211,
+                  "content": "仓库列表"
+                },
+                "devui:QuS45": {
+                  "y": 880
+                }
+              }
+            },
+            {
+              "type": "frame",
+              "id": "vq4Vf",
+              "name": "表格区",
+              "width": "fill_container",
+              "fill": "#fafafa",
+              "layout": "vertical",
+              "gap": 16,
+              "padding": 24,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "UYzZw",
+                  "name": "表格工具栏",
+                  "width": "fill_container",
+                  "height": 40,
+                  "gap": 16,
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "id": "GwVxH",
+                      "type": "ref",
+                      "ref": "devui:RoYUx",
+                      "width": "fit_content",
+                      "height": 32,
+                      "name": "btnNew",
+                      "x": 0,
+                      "y": 4,
+                      "descendants": {
+                        "devui:kPfIZ": {
+                          "content": "新建"
+                        },
+                        "devui:VF4Xo": {
+                          "x": 68
+                        }
+                      }
+                    },
+                    {
+                      "type": "frame",
+                      "id": "xfKMb",
+                      "name": "搜索区",
+                      "gap": 12,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "id": "0wI9e",
+                          "type": "ref",
+                          "ref": "devui:X93Mt",
+                          "width": 280,
+                          "height": 32,
+                          "name": "searchBox",
+                          "x": 0,
+                          "y": 0,
+                          "descendants": {
+                            "devui:ct2GB": {
+                              "width": "fill_container"
+                            },
+                            "devui:DAkKW": {
+                              "content": "搜索仓库名称、描述等"
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "VW96C",
+                      "name": "筛选区",
+                      "gap": 8,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "id": "2RmKX",
+                          "type": "ref",
+                          "ref": "devui:8hidv",
+                          "width": "fit_content",
+                          "height": 32,
+                          "name": "filterTime",
+                          "x": 0,
+                          "y": 0,
+                          "descendants": {
+                            "devui:4BfW6": {
+                              "content": "创建时间"
+                            },
+                            "devui:IMoVx": {
+                              "x": 64
+                            }
+                          }
+                        },
+                        {
+                          "id": "xrahW",
+                          "type": "ref",
+                          "ref": "devui:qTc8e",
+                          "width": "fit_content",
+                          "height": 32,
+                          "name": "viewToggle",
+                          "x": 86,
+                          "y": 0,
+                          "descendants": {
+                            "devui:natD9": {
+                              "y": 8
+                            },
+                            "devui:gndIw": {
+                              "y": 5,
+                              "content": "表格视图"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "id": "IYtfC",
+                  "type": "ref",
+                  "ref": "devui:35iCd",
+                  "width": "fill_container",
+                  "name": "tableRef",
+                  "x": 24,
+                  "y": 80,
+                  "descendants": {
+                    "devui:hvbEo": {
+                      "width": 0
+                    },
+                    "devui:Ikld4": {
+                      "width": 0
+                    },
+                    "devui:JwLSz": {
+                      "x": 0
+                    },
+                    "devui:6lqWv": {
+                      "width": "fit_content"
+                    },
+                    "devui:ZNuLN": {
+                      "content": "代码仓"
+                    },
+                    "devui:pWNJG": {
+                      "x": 45
+                    },
+                    "devui:BXHKI": {
+                      "content": "phoenix-sample / 后端服务",
+                      "fill": "#5e7ce0"
+                    },
+                    "devui:4yTOV": {
+                      "content": "web-frontend / 前端工程",
+                      "fill": "#5e7ce0"
+                    },
+                    "devui:iB8IM": {
+                      "content": "mobile-app / 移动端应用",
+                      "fill": "#5e7ce0"
+                    },
+                    "devui:5jbhk": {
+                      "content": "api-gateway / 接口网关",
+                      "fill": "#5e7ce0"
+                    },
+                    "devui:6OS9F": {
+                      "content": "devops-scripts / 运维脚本库",
+                      "fill": "#5e7ce0"
+                    },
+                    "devui:bfAdI": {
+                      "content": "data-service / 数据服务",
+                      "fill": "#5e7ce0"
+                    },
+                    "devui:i1R9P": {
+                      "content": "common-utils / 公共工具",
+                      "fill": "#5e7ce0"
+                    },
+                    "devui:PB4a2": {
+                      "content": "docs / 项目文档",
+                      "fill": "#5e7ce0"
+                    },
+                    "devui:y8PTK": {
+                      "x": 119
+                    },
+                    "devui:BJiDW": {
+                      "width": "fit_content"
+                    },
+                    "devui:ch95U": {
+                      "content": "最近更新时间"
+                    },
+                    "devui:wIQlI": {
+                      "x": 105
+                    },
+                    "devui:KJxdw": {
+                      "width": "fit_content"
+                    },
+                    "devui:J0Yby": {
+                      "content": "高",
+                      "fill": "#50d4ab"
+                    },
+                    "devui:GqDSu": {
+                      "content": "2 小时前",
+                      "fill": "#575d6c",
+                      "x": 77
+                    },
+                    "devui:Br9qd": {
+                      "width": "fit_content"
+                    },
+                    "devui:92ihF": {
+                      "content": "中",
+                      "fill": "#575d6c"
+                    },
+                    "devui:fY65Y": {
+                      "x": 77,
+                      "content": "1 天前",
+                      "fill": "#252b3a"
+                    },
+                    "devui:jVXFL": {
+                      "width": "fit_content"
+                    },
+                    "devui:NKq5z": {
+                      "content": "低",
+                      "fill": "#ffffff"
+                    },
+                    "devui:Hw8s8": {
+                      "content": "3 天前",
+                      "fill": "#252b3a",
+                      "x": 77
+                    },
+                    "devui:CnwTn": {
+                      "width": "fit_content"
+                    },
+                    "devui:dxpdb": {
+                      "content": "低",
+                      "fill": "#ffffff"
+                    },
+                    "devui:Whf82": {
+                      "content": "5 小时前",
+                      "fill": "#252b3a",
+                      "x": 77
+                    },
+                    "devui:0Ddlh": {
+                      "width": "fit_content"
+                    },
+                    "devui:w0BCC": {
+                      "content": "高",
+                      "fill": "#ffffff"
+                    },
+                    "devui:juBoC": {
+                      "content": "1 周前",
+                      "fill": "#252b3a",
+                      "x": 77
+                    },
+                    "devui:EeWcI": {
+                      "x": 499
+                    },
+                    "devui:PuohK": {
+                      "width": "fit_content"
+                    },
+                    "devui:V4ZUM": {
+                      "content": "近3个月活动趋势"
+                    },
+                    "devui:CCJwv": {
+                      "x": 100
+                    },
+                    "devui:48S7I": {
+                      "content": "3 个进行中"
+                    },
+                    "devui:0B3WS": {
+                      "content": "1 个进行中"
+                    },
+                    "devui:q8GRa": {
+                      "content": "0"
+                    },
+                    "devui:2sjSi": {
+                      "content": "2 个进行中"
+                    },
+                    "devui:8Pa94": {
+                      "content": "0"
+                    },
+                    "devui:igG2A": {
+                      "content": "0"
+                    },
+                    "devui:gWAqw": {
+                      "x": 604
+                    },
+                    "devui:H7SzV": {
+                      "width": "fit_content"
+                    },
+                    "devui:L03UN": {
+                      "content": "合并请求"
+                    },
+                    "devui:iu9Vp": {
+                      "x": 57
+                    },
+                    "devui:HLn58": {
+                      "x": 81
+                    },
+                    "devui:jxVQt": {
+                      "content": "12 Fork / 25 关注"
+                    },
+                    "devui:ptuYW": {
+                      "content": "5 Fork / 18 关注"
+                    },
+                    "devui:qxN73": {
+                      "content": "2 Fork / 8 关注"
+                    },
+                    "devui:N8WWU": {
+                      "content": "9 Fork / 31 关注"
+                    },
+                    "devui:KhxSc": {
+                      "content": "3 Fork / 11 关注"
+                    },
+                    "devui:BYvLF": {
+                      "x": 773
+                    },
+                    "devui:3pUaE": {
+                      "width": "fit_content"
+                    },
+                    "devui:88A5I": {
+                      "content": "Fork 关注"
+                    },
+                    "devui:RhoOs": {
+                      "x": 110
+                    },
+                    "devui:ETOvp": {
+                      "x": 134
+                    },
+                    "devui:G2u8Q": {
+                      "x": 891
+                    },
+                    "devui:iCxtk": {
+                      "width": "fit_content"
+                    },
+                    "devui:48ufc": {
+                      "content": ""
+                    },
+                    "devui:3vgCQ": {
+                      "x": 8
+                    },
+                    "devui:QJrmd": {
+                      "x": 1106
+                    },
+                    "devui:LlBSU": {
+                      "width": "fit_content"
+                    },
+                    "devui:6Z8Fj": {
+                      "content": ""
+                    },
+                    "devui:GPPWe": {
+                      "x": 8
+                    },
+                    "devui:guwj3": {
+                      "width": "fit_content",
+                      "x": 96
+                    },
+                    "devui:sfl7X": {
+                      "x": 1305
+                    },
+                    "devui:zzvdf": {
+                      "width": "fit_content"
+                    },
+                    "devui:2oaz0": {
+                      "content": ""
+                    },
+                    "devui:TQyv5": {
+                      "x": 8
+                    },
+                    "devui:aoEf9": {
+                      "x": 32
+                    },
+                    "devui:gYHTO": {
+                      "x": 1421
+                    },
+                    "devui:B3PgM": {
+                      "width": "fit_content"
+                    },
+                    "devui:zKNnS": {
+                      "content": "操作"
+                    }
+                  }
+                },
+                {
+                  "id": "kjUJs",
+                  "type": "ref",
+                  "ref": "devui:i5IDo",
+                  "width": "fit_content",
+                  "height": 32,
+                  "name": "分页",
+                  "x": 24,
+                  "y": 474,
+                  "descendants": {
+                    "devui:W2r7v": {
+                      "width": "fit_content"
+                    },
+                    "devui:S9MLo": {
+                      "x": 115
+                    },
+                    "devui:ZQru6": {
+                      "x": 188
+                    },
+                    "devui:PnMK2": {
+                      "x": 225
+                    },
+                    "devui:qU56D": {
+                      "x": 262
+                    },
+                    "devui:iZDyL": {
+                      "x": 299
+                    },
+                    "devui:rDMXI": {
+                      "x": 336
+                    },
+                    "devui:ykBLD": {
+                      "x": 373
+                    }
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "imports": {
+    "devui": "../designsystem/devUI/components/devUI2.pen"
+  }
+}
