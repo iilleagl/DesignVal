@@ -25,20 +25,20 @@ description: Generate UI design drafts (.pen files) using Pencil MCP tools with 
 
 | 组件类型 | 需填充内容 | 说明 |
 |----------|------------|------|
-| **顶栏** Rpv7B | 产品名、菜单项、区域、用户等 | 多文本节点，必须一次性在 descendants 中填齐 |
-| **侧栏/工具链导航** JGEqF、kyl45 | 项目名、一级/二级菜单项 | 极易遗漏，插入时必须带齐 descendants |
-| **面包屑** iLVzA 等 | 各层级路径文案 | 2～6 层按实际层级填 |
-| **头信息** Xxf4j | 标题、返回按钮、辅助信息、详情行 | 与页面业务强相关 |
-| **页签** hbi7t、cee0f 等 | 每个页签的标签文字 | 与当前页功能一致 |
-| **按钮** RoYUx、qTc8e 等 | 按钮上的文字 | 如「返回」「提交」「取消」 |
-| **表格** 35iCd 等 | 表头列名、关键单元格 | 表头必须为业务列名，不能留「编号」「标题」等 |
-| **卡片** 7ipso、LcKkl 等 | 标题、描述、数据、操作文字 | 用于数据展示时需填具体指标与说明 |
-| **搜索框** X93Mt | 占位提示文案 | 如「请输入关键词」 |
-| **标签** PXlZz 等 | 标签文字 | 如「进行中」「已通过」 |
+| **顶栏** `etDDY`/`Uexy2` | 产品名、菜单项、区域、用户等 | 多文本节点，必须一次性在 descendants 中填齐 |
+| **侧栏/工具链导航** `E36oP`、`K0pVg` | 项目名、一级/二级菜单项 | 极易遗漏，插入时必须带齐 descendants |
+| **面包屑** `AlQDE` 等 | 各层级路径文案 | 2～6 层按实际层级填 |
+| **头信息** `hJlzm`/`TUWxd` | 标题、返回按钮、辅助信息、详情行 | 与页面业务强相关 |
+| **页签** `5AtIy` 等 | 每个页签的标签文字 | 与当前页功能一致 |
+| **按钮** `tSwIg`、`ChE0Z` 等 | 按钮上的文字 | 如「返回」「提交」「取消」 |
+| **表格** `xz7LI` 等 | 表头列名、关键单元格 | 表头必须为业务列名，不能留「编号」「标题」等 |
+| **卡片** `a74K6`、`QnsHG` 等 | 标题、描述、数据、操作文字 | 用于数据展示时需填具体指标与说明 |
+| **搜索框** `sLVmB`/`pClmN` | 占位提示文案 | 如「请输入关键词」 |
+| **标签** `jezfD` 等 | 标签文字 | 如「进行中」「已通过」 |
 
 ### 如何填充：插入时用 descendants 一次性填齐
 
-- **推荐做法**：在 `I(parent, { type: "ref", ref: "devui:组件ID", descendants: { "devui:文本节点ID": { content: "实际文案" }, ... } })` 中，**在插入时**就通过 `descendants` 传入该组件内**所有**需要展示的文本节点及其文案。
+- **推荐做法**：在 `I(parent, { type: "ref", ref: "组件ID", descendants: { "所有文本子节点ID": { content: "实际文案" }, ... } })` 中，**在插入时**就通过 `descendants` 传入该组件内**所有**需要展示的文本节点及其文案。
 - **前置步骤**：先用 `batch_get(nodeIds=["devui:组件ID"], readDepth=3, resolveInstances=true)` 读出组件内部结构，找到所有 `type: "text"` 或带 `content` 的节点 ID（导出时为 `devui:xxx`），再在 Spec 或内容物料表中列出「节点 ID → 业务文案」的映射，插入时一次性写入 descendants。
 - **禁止**：插入多文案组件时不带 descendants 或只填部分文案（如只改顶栏、不改侧栏），导致页面出现「一级菜单」「二级菜单」等占位。若首次漏填，只能删除该实例后重新插入并带齐 descendants；不要依赖事后 `U(实例ID/devui:子节点ID)` 补文案，以免污染组件定义。
 
@@ -133,26 +133,26 @@ pencil.batch_get(patterns=[{reusable: true, name: "关键词"}], searchDepth=2)
 
 ```
 设计稿结构示例（数据列表页）：
-├── 顶部导航栏 → devui:Rpv7B
-├── 左侧边栏 → devui:JGEqF（工具链导航/展开）
+├── 顶部导航栏 → devui:Uexy2
+├── 左侧边栏 → devui:E36oP（工具链导航/展开=on）
 ├── 内容区
-│   ├── 面包屑 → devui:iLVzA（3层）
+│   ├── 面包屑 → devui:UOL0h（3层）
 │   ├── 页面标题 → 无匹配组件，按规范自建
-│   ├── 搜索框 → devui:X93Mt（左图标/default）
-│   ├── 页签 → devui:hbi7t（Tabs/3项）
-│   ├── 数据表格 → devui:35iCd（单线/有阴影）
-│   ├── 分页器 → devui:i5IDo
-│   └── 操作按钮 → devui:RoYUx（主要/md）+ devui:qTc8e（次要/md）
+│   ├── 搜索框 → devui:pClmN（左图标/default）
+│   ├── 页签 → devui:Z70QE（Pills/3项）
+│   ├── 数据表格 → devui:8K8z3（singleLine/有阴影）
+│   ├── 分页器 → devui:6gQ4a
+│   └── 操作按钮 → devui:mYPZF（主要/md）+ devui:VKSqi（次要/md）
 ```
 
 ```
 设计稿结构示例（表单页）：
-├── 头信息 → devui:Xxf4j
+├── 头信息 → devui:TUWxd
 ├── 表单区
-│   ├── 表单项-文本输入框 → devui:Laiht（noContent/基础）
-│   ├── 表单项-下拉选择框 → devui:qw7Ux（noContent）
-│   ├── 复选框文本组合 → devui:f0TO6（未选/default）
-│   └── 按钮组 → devui:RoYUx + devui:qTc8e
+│   ├── 表单组件-输入框 → devui:QzXy7（输入框/带按钮/showExtraInfo=false）
+│   ├── 表单组件-下拉选择 → devui:lXYgx（下拉选择/带按钮/showExtraInfo=false）
+│   ├── 复选框文本组合 → devui:zEXWw（未选/default）
+│   └── 按钮组 → devui:mYPZF + devui:VKSqi
 ```
 
 ---
@@ -163,7 +163,7 @@ pencil.batch_get(patterns=[{reusable: true, name: "关键词"}], searchDepth=2)
 
 #### 优先级 1：ref 引用 + descendants（最优）
 
-条件：组件库有完全匹配的组件。导入后 ref 格式为 `devui:组件ID`（如 `devui:RoYUx`）。
+条件：组件库有完全匹配的组件。导入后 ref 格式为 `devui:组件ID`（如 `devui:mYPZF`）。
 
 **必须**用 `I(..., {type: "ref", ref: "组件ID", descendants: { "所有文本子节点ID": { content: "实际文案" }, ... }})` 在插入时通过 descendants 修改**全部**文本图层。禁止不带 descendants 的 ref 插入，禁止遗漏文本图层。
 
@@ -214,6 +214,7 @@ newItem=R(navbar+"/旧菜单项ID", {type: "text", content: "新菜单项"})
 
 ```javascript
 title=I(container, {type: "text", content: "页面标题", fontSize: 16, fontWeight: "700", fill: "#252B3A", fontFamily: "Noto Sans SC", lineHeight: 1.5})
+```
 
 ---
 
@@ -228,23 +229,23 @@ title=I(container, {type: "text", content: "页面标题", fontSize: 16, fontWei
 - 插入 ref 实例前，**必须**先用 `batch_get(readDepth=3, resolveInstances=true)` 读取组件内部结构，获取子节点 ID（导入组件为 `devui:子节点ID`）。
 - 在 `descendants` 或后续 `U(实例ID/devui:子节点ID, {...})` 中逐一替换文本/图标。
 - 选择从零创建前，必须确认已搜索组件库且无匹配组件。
-- 以 `.` 开头的组件（如 `.基础面包屑组件`）是**基础子组件**，通常不直接使用，而是作为更高级组件的构成部分。
+- 组件名中带「/」描述变体属性（如「按钮/尺寸-Size=md, 状态-Status=default」），以 `.` 开头的是**基础子组件**，通常不直接使用，而是作为更高级组件的构成部分。
 - 设计稿中一般使用 **default** 状态的组件，除非需要展示交互态。
 
 ---
 
 ## DevUI 组件选型速查表
 
-根据 UI 需求场景，直接查找对应的组件 ID。所有 ID 在 ref 时加 `devui:` 前缀（如 `devui:RoYUx`）。
+根据 UI 需求场景，直接查找对应的组件 ID。所有 ID 在 ref 时加 `devui:` 前缀（如 `devui:mYPZF`）。
 
 ### 1. 按钮 Button
 
 | 场景 | 组件 | 推荐 ID（default 状态） |
 |------|------|------------------------|
-| 主操作（提交、确认、新建） | 按钮-主要 | `RoYUx`(md) `VoApM`(sm) `K9tFF`(lg) |
-| 辅助操作（取消、返回、编辑） | 按钮-次要 | `qTc8e`(md) `9auaH`(sm) `UQ59s`(lg) |
-| 带图标的操作按钮 | 按钮-图标文本按钮 | `hOrvp`(md) `pQrIo`(sm) |
-| 带下拉菜单的按钮 | 按钮-可下拉次要组合按钮 | `XE86l`(md/icon) `hrHhN`(md/number) |
+| 主操作（提交、确认、新建） | 按钮-主要 `tSwIg` | `mYPZF`(md) `Rl5jm`(sm) `UtovU`(lg) |
+| 辅助操作（取消、返回、编辑） | 按钮-次要 `ChE0Z` | `VKSqi`(md) `jxhLP`(sm) `rTL5w`(lg) |
+| 带图标的操作按钮 | 按钮-图标文本按钮 `Krfl3` | `6LFBN`(md) `3i79O`(sm) |
+| 带下拉菜单的按钮 | 按钮-可下拉次要组合按钮 `rrLTG` | `ziNQG`(icon/md) `r9lnG`(icon/sm) `rJDJL`(number/md) `gZrTy`(number/sm) |
 
 **尺寸规则**: lg→页面主操作区，md→表单/卡片内，sm→表格行内或紧凑空间。
 
@@ -252,27 +253,23 @@ title=I(container, {type: "text", content: "页面标题", fontSize: 16, fontWei
 
 | 场景 | 组件 | 推荐 ID |
 |------|------|--------|
-| 胶囊式切换（紧凑筛选） | 页签Pills | `Mtrw0`(4项) `cee0f`(3项) `Fyjni`(2项) |
-| 标准下划线页签 | 页签Tabs | `nCtvQ`(4项) `hbi7t`(3项) `6gvC2`(2项) |
-| 环绕式页签（卡片式） | 页签Wrapped | `ABY1y`(2项) `dl8H7`(3项) `ulUOy`(4项) |
-| 带图标的页签 | 页签Icon | `Qrd7b`(3项) `mOgNp`(2项) |
-| 纯图标页签（视图切换） | 页签-图标页签 | `RcvJ4`(2项) `n92Tu`(3项) |
+| 胶囊式切换（紧凑筛选） | 页签Pills `5AtIy` | `l9A3O`(2项) `Z70QE`(3项) `KEOhA`(4项) `6YelH`(5项) `8L4up`(6项) |
 
 ### 3. 面包屑 BreadCrumbs
 
 | 场景 | 组件 | 推荐 ID |
 |------|------|--------|
-| 标准面包屑（按层级数选） | 面包屑组 | `WYqKP`(2层) `iLVzA`(3层) `jGzKJ`(4层) `AnLIL`(5层) `rC1xU`(6层) |
-| 省略形式面包屑 | 面包屑组/ellipsis | `mkJuD` |
+| 标准面包屑（按层级数选） | 面包屑组 `AlQDE` | `ydEdG`(2层) `UOL0h`(3层) `yl4Dd`(4层) `EF14Z`(5层) `oNW38`(6层) |
+| 省略形式面包屑 | 面包屑组 | `H50rT`(ellipsis) |
 
 ### 4. 标签 Tag
 
 | 场景 | 组件 | 推荐 ID |
 |------|------|--------|
-| 状态标签（成功/运行中） | 标签 | `PXlZz`(md/green) `qWlVQ`(md/orange) |
-| 辅助信息标签 | 辅助标签 | `wcoqv`(md/green) `JQE2Y`(md/grey) |
-| 通用标签（分类/标记） | 常规标签 | `6LAHt`(md) `WZFF6`(lg) |
-| 线性轮廓标签 | 线性标签 | `rqTmW`(md/green) `UyGV1`(md/orange) `VnbP7`(md/red) |
+| 状态标签（成功/运行中） | 标签 `jezfD` | `FQ7uH`(md/green) `97oGy`(md/orange) `SCjyy`(lg/green) `sgr9e`(lg/orange) |
+| 辅助信息标签 | 辅助标签 `qyFas` | `rS2Ar`(md/green) `6s2lw`(md/grey) `M7pBw`(lg/green) `GeQ2G`(lg/grey) |
+| 通用标签（分类/标记） | 常规标签 `S4vFN` | `xtggI`(md) `BhCuI`(lg) |
+| 线性轮廓标签 | 线性标签 `9iCpY` | `5Uwaj`(md/green) `rPKah`(md/orange) `DCWif`(md/red) `vbC5I`(lg/green) `2cBdA`(lg/orange) `9wtql`(lg/red) |
 
 **颜色语义**: green=成功/正常，orange=警告/进行中，red=错误/危险，grey=默认/禁用。
 
@@ -280,143 +277,180 @@ title=I(container, {type: "text", content: "页面标题", fontSize: 16, fontWei
 
 | 场景 | 推荐 ID |
 |------|--------|
-| 默认搜索框（左图标） | `X93Mt`(default-noContent) |
-| 右侧搜索图标 | `xzhr5`(default-noContent) |
-| 分类搜索（带标签） | `Pts3s`(default/关) `9M9md`(default/开) |
+| 默认搜索框（左图标） | `pClmN`(default-noContent) |
+| 右侧搜索图标 | `sMfy0`(default-noContent) |
+| 带已有内容的搜索框 | `Yvn9i`(left/contentpresent) `WwjQs`(right/contentpresent) |
+| hover 状态 | `8wlP5`(left) `eMmaO`(right) |
+| 激活-等待输入 | `8440P`(left) `fFllq`(right) |
+| 激活-已输入 | `3oslM`(left) `bE46t`(right) |
+| 禁用 | `kUBVi`(left) `ljKNe`(right) |
 
-### 6. 复选框 Checkbox
-
-| 场景 | 推荐 ID |
-|------|--------|
-| 纯复选框（表格行选择） | `bzYOF`(未选) `S2hIB`(已选) `c45Iy`(半选) |
-| 带文本的复选框 | `f0TO6`(未选) `4q9SP`(已选) `JEIKW`(半选) |
-
-### 7. 分页器 Pagination
+### 6. 分类搜索 CategorySearch
 
 | 场景 | 推荐 ID |
 |------|--------|
-| 标准分页（无跳转） | `i5IDo` |
-| 带跳转输入的分页 | `9iCrn` |
+| 默认状态（标签关） | `TnjT0`(default/tag=关) |
+| 默认状态（标签开） | `Egl1a`(default/tag=开) |
+| hover 状态 | `YZlVY`(hover/tag=关) `FH7dj`(hover/tag=开) |
 
-### 8. 输入框 TextInput
+### 7. 复选框 Checkbox
+
+| 场景 | 推荐 ID |
+|------|--------|
+| 带文本 - 未选中 | `zEXWw`(default) `Z7suW`(hover) `0MYsw`(disabled) |
+| 带文本 - 已选中 | `Ee6NI`(default) `TlgP7`(hover) `ZkDgw`(disabled) |
+| 带文本 - 半选 | `ORk6K`(default) `jyQdg`(hover) `5JUes`(disabled) |
+
+### 8. 分页器 Pagination
+
+| 场景 | 推荐 ID |
+|------|--------|
+| 标准分页（无跳转） | `6gQ4a` |
+| 带跳转输入的分页 | `IRAdk` |
+
+### 9. 输入框 TextInput
 
 | 场景 | 组件 | 推荐 ID |
 |------|------|--------|
-| 标准文本输入 | 文本输入框 | `jmCZP`(noContent) `wSpES`(hasContent) |
-| 数字输入 | 数字输入框 | `1ggPm`(default) |
-| 带标题的表单输入项 | 表单项-文本输入框 | `Laiht`(noContent/基础) `IKx4V`(noContent/必填) |
-| 表单标题 | 表单标题 | `byJ1L`(基础) `Rl404`(必填) `VPtKX`(必填+提示) |
+| 标准文本输入 | 文本输入框 `zUrj8` | `rn9tI`(noContent) `tdhOO`(hasContent) `uF43C`(hover) `OLGBd`(focus) `yF2iu`(input) `QgeQz`(danger) `Um9VZ`(success) `ZnH43`(disabled) |
+| 数字输入 | 数字输入框 `FPTv3` | `ko1Kw`(default) `hxtGb`(hover) `w16xK`(left-hover) `CDf29`(right-hover) `l7vk3`(disabled) |
+| 多行文本输入 | 表单项-多行文本输入框 `VFC67` | `qjjWq` |
+| 表单标题 | 表单标题 `mySBY` | `7iMMv`(基础) `78DAm`(必填) `67xGb`(提示图标) `kzZ0d`(必填+提示) |
 
-表单项-文本输入框的选择需确定 4 个属性：`状态-status`、`必选图标-required`、`提示图标-helpTips`、`是否展示辅助文本-showExtraInfo`。
+表单项-文本输入框由表单标题 + 文本输入框 + 可选辅助文本组成。选择时确定：`状态-status`、`必选图标-required`、`提示图标-helpTips`、`是否展示辅助文本-showExtraInfo`。
 
-### 9. 选择框 Select
+### 10. 选择框 Select
 
 | 场景 | 组件 | 推荐 ID |
 |------|------|--------|
-| 单选下拉框（关） | 下拉选择框 | `wDKSI`(未选) `PdpLn`(已选) |
-| 单选下拉框（开） | 下拉选择框 | `of7nh` |
-| 多选下拉框 | 下拉选择框-多选 | `QHiNZ`(Default) `6R9AA`(active) |
-| 表单中的下拉选择 | 表单项-下拉选择框 | `qw7Ux`(noContent) `NckfV`(hasContent) |
+| 单选下拉框（未选/关） | 下拉选择框 `zlQjV` | `zTtRm`(default/未选/关) |
+| 单选下拉框（已选/关） | 下拉选择框 | `g8ll6`(default/已选/关) |
+| 单选下拉框（展开） | 下拉选择框 | `LjSx5`(未选/开) `zvNlm`(已选/开) |
+| 其他状态 | 下拉选择框 | `oEm0T`(hover/未选) `V8Ggo`(hover/已选) `JTmP2`(select/未选) `OX3vH`(select/已选) `GK2ZR`(active/已选) `JRnyz`(disabled) |
 
-### 10. 表格 DataTable
+### 11. 表格 DataTable
 
 | 场景 | 推荐 ID |
 |------|--------|
-| 单线表格（有阴影） | `35iCd` |
-| 单线表格（无阴影） | `aIr8R` |
-| 带分隔线表格（有阴影） | `e9Fdp` |
-| 带分隔线表格（无阴影） | `ZxEIK` |
+| 单线表格（有阴影） | `8K8z3` |
+| 单线表格（无阴影） | `BUBhb` |
+| 带分隔线表格（有阴影） | `8Oq0P` |
+| 带分隔线表格（无阴影） | `2PPub` |
 
 **嵌套结构**:
 ```
 表格
-├── 表头行 → 默认类/表头单项 × N（position: startPosition/middleItem/endPosition）
-└── 表体行 × M → 默认类/表体单项 × N
+├── 表头行 → 表头单项 × N（position: startPosition/middleItem/endPosition）
+└── 表体行 × M → 表体单项 × N
     contentType: text/link/treeStructure/statusWithName/iconWithLabelAndTitle/
                  textWithLabel/tags/labelWithText/priorityLevel/perationColumn/checkBox
 ```
 
-**子组件**: `.操作列` `IcutX`/`ED8JJ`/`RDeTa`，`.priority-flag` `QFgfR`(低)/`1RjoZ`(中)/`4031i`(高)，`.表体组件/状态图标` `ZxnlF`(success)/`4h5bF`(info)/`01K6T`(warning)
-
-### 11. 筛选 Filter
+### 12. 筛选 Filter
 
 | 场景 | 推荐 ID |
 |------|--------|
-| 简易筛选（单条件） | `8hidv`(default) |
-| 复杂筛选（多条件） | `dXtcd`(default) |
-| 筛选选择面板 | `Hk6wG`(3项) `89xhB`(4项) `oIVzC`(5项) `fGhHM`(6项) |
+| 简易筛选（单条件） | `Jz8Tn`(default) `kasjZ`(hover) `IBiU4`(active) |
+| 复杂筛选（多条件） | `3Nppx`(default) `xwumW`(hover) `ImL7Y`(active) |
 
-### 12. 表单 Form
+### 13. 表单 Form
 
 | 场景 | 推荐 ID |
 |------|--------|
-| 下拉选择表单项（带按钮） | `PQwRQ` |
-| 下拉选择表单项（无按钮） | `jbFdp` |
-| 输入框表单项（带按钮） | `hzV0w` |
-| 输入框表单项（无按钮） | `xdkiR` |
+| 下拉选择表单项（带按钮，无辅助文本） | `lXYgx` |
+| 下拉选择表单项（带按钮，有辅助文本） | `ziusM` |
+| 下拉选择表单项（无按钮，无辅助文本） | `Crm3Z` |
+| 下拉选择表单项（无按钮，有辅助文本） | `H2LJA` |
+| 输入框表单项（带按钮，无辅助文本） | `QzXy7` |
+| 输入框表单项（带按钮，有辅助文本） | `AEMdH` |
+| 输入框表单项（无按钮，无辅助文本） | `Zk0Ev` |
+| 输入框表单项（无按钮，有辅助文本） | `XI7d1` |
 
-### 13. 卡片 Cards
+### 14. 卡片 Cards
 
 | 场景 | 组件 | 推荐 ID |
 |------|------|--------|
-| 项目卡片（带项目图标） | 项目卡片 | `LcKkl`(默认) |
-| 基本卡片（通用展示） | 基本卡片 | `7ipso`(默认) |
-| 基本卡片容器（可插入slot） | 卡片/基本卡片 | `YCOKr` `WLYWO` |
-| 带图卡片 | 带图卡片 | `rKwK1`(默认) |
+| 项目卡片（带项目图标） | 项目卡片 `a74K6` | `9qbEz`(默认) `PyyzD`(悬浮) `0sBFU`(悬浮-标题变蓝) |
+| 基本卡片（通用展示） | 基本卡片 `QnsHG` | `MBNRG`(默认) `8vipZ`(悬浮) `veIiD`(悬浮-标题变蓝) |
+| 带图卡片 | 带图卡片 `RKPRI` | `HKJpB`(默认) `Z9pnT`(悬浮) `UXGvV`(悬浮-标题变蓝) |
+| 现网卡片样式 | 现网卡片样式 `cpmQU` | `JIqzC`(default) `eJVv6`(hover) |
 
-**子组件**: `.有图标标题` `AcYr4`/`hX9h2`/`jG3Sg`，`.无图标标题` `I1uwM`/`86i3l`，`.信息展示` `bzUgt`(图标on)/`znCAX`(图标off)
-
-### 14. 头信息 Header
+### 15. 头信息 Header
 
 | 场景 | 推荐 ID |
 |------|--------|
-| 默认头信息 | `Xxf4j` |
-| 带搜索的头信息 | `p1nGW`(2项) `psp7m`(3项) `b6iRO`(4项) |
+| 默认头信息 | `TUWxd`(default) |
+| 带搜索的头信息（2项） | `ZU5hh` |
+| 带搜索的头信息（3项） | `ju9uI` |
+| 带搜索的头信息（4项） | `v7KDW` |
 
-### 15. 导航
+### 16. 导航
 
 #### 顶部导航栏
 
 | 场景 | 推荐 ID |
 |------|--------|
-| 默认顶部导航栏 | `Rpv7B` |
-| 占位顶部导航栏 | `qPAD7` |
+| 默认顶部导航栏 | `Uexy2`(种类=default) |
+| 占位顶部导航栏 | `2bjDj`(种类=占位) |
 
 #### 工具链专用侧边栏
 
 | 场景 | 推荐 ID |
 |------|--------|
-| 展开状态 | `JGEqF` |
-| 收起状态 | `BBmtw` |
-
-一级菜单（展开态）按二级菜单数量选择: `QOgvs`(0个) `RkIsL`(2个) `prLam`(3个) `s8rZy`(4个) `430Og`(5个) `NmMfG`(6个)
+| 展开状态 | `E36oP`(展开=on) |
+| 收起状态 | `SQOb3`(展开=off) |
 
 #### 手风琴侧边导航
 
 | 场景 | 推荐 ID |
 |------|--------|
-| 完整侧边栏 | `kyl45` |
+| 完整侧边栏 | `K0pVg` |
 
-### 16. 业务组件
+### 17. 链接 Link
 
 | 场景 | 推荐 ID |
 |------|--------|
-| 左侧选择菜单卡片 | `6aBNN` |
-| Banner卡片 | `wxO2j` |
-| Banner（大横幅） | `lSc0M` |
-| 公告卡片 | `3kAYs` |
-| 活动卡片 | `ioZGG` |
+| 默认链接 | `mhEH0`(默认) `3RfnO`(悬浮) |
+| 表格文字黑色链接 | `LEdP1`(默认/无前缀图标) `JJnfg`(默认/有前缀图标) |
+| 表格加粗列文字链接 | `o7CIP`(默认) `T543A`(悬浮) |
 
-### 17. 图标资源
+### 18. 业务组件
 
-| 类型 | frame ID | 说明 |
-|------|----------|------|
-| 操作图标 (16px) | `QY5Bx` | add/help/chevron-down/more/search/close/setting/filter |
-| 字母图标 (48px) | `SYWnk` | A-Z 用于项目卡片标识 |
-| 字母图标 (32px) | `HEF9Q` | A-Z 较小尺寸 |
-| 2D 服务图标 (16px) | `c3mAv` | 服务树/变更列表/部署/测试/发布 |
-| 质感图标 (24px) | `iIj5S` | 持续交付/仪表盘/软件设计/代码管理 |
-| 顶部导航图标 (24px) | `wqMp8` | 服务/看板/项目/工作台/首页 |
+| 场景 | 推荐 ID |
+|------|--------|
+| 左侧选择菜单卡片 | `VP3uY` |
+| Banner（大横幅） | `Zj0tz` |
+| 公告卡片 | `FvbbS` |
+| 活动卡片 | `gk3XY` |
+| 帮助文档卡片 | `x0QDF` |
+| 字母图标 | `N8QxK`（帧内按字母选择） |
+
+### 19. 模态弹窗 Modal
+
+| 场景 | 推荐 ID |
+|------|--------|
+| 非模态弹窗 | `xbwXy` |
+| 模态弹窗（全屏遮罩） | `WJxDN` |
+
+### 20. 步骤条 TaskStep
+
+| 场景 | 推荐 ID |
+|------|--------|
+| 横向-左右布局 | `Zavv1` |
+| 横向-居中对齐 | `qPPvF`（帧内选变体） |
+| 纵向步骤条 | `FYkld`（帧内选变体） |
+
+### 21. 其他组件
+
+| 场景 | 组件 | 推荐 ID |
+|------|------|--------|
+| 进度条（条形） | 进度条 Progress | `bMfa8` |
+| 进度条（圆形） | 进度条-circle | `QqPAN` |
+| 徽标 | 徽标 Badge | `neMUc`(默认) `HfYS3`(小尺寸) |
+| 图片上传 | 图片上传 ImageUpload | `cA3sd` |
+| 级联菜单 | 级联菜单 Cascader | `fXw1o` |
+| 缺省页插画 | 缺省页插画 | `UksPg`(缺省图) `aZADr`(小尺寸卡片插图) |
+| 滚动条 | 滚动条 Scrollbar | `tzbQI`(竖向/默认) `vBb1r`(横向/默认) `jHuhG`(竖向/小) `Gy5v0`(横向/小) |
 
 ---
 
@@ -425,36 +459,36 @@ title=I(container, {type: "text", content: "页面标题", fontSize: 16, fontWei
 ### 数据列表页
 
 ```
-顶部导航栏 (devui:Rpv7B)
-├── 侧边栏 (devui:JGEqF 或 devui:kyl45)
+顶部导航栏 (devui:Uexy2)
+├── 侧边栏 (devui:E36oP 或 devui:K0pVg)
 └── 主内容区
-    ├── 头信息 (devui:Xxf4j) 或 面包屑 (devui:iLVzA)
-    ├── 筛选/搜索区 (devui:8hidv + devui:X93Mt + 按钮)
-    ├── 页签切换 (devui:hbi7t 或 devui:cee0f)
-    ├── 数据表格 (devui:35iCd)
-    └── 分页器 (devui:i5IDo)
+    ├── 头信息 (devui:TUWxd) 或 面包屑 (devui:UOL0h)
+    ├── 筛选/搜索区 (devui:Jz8Tn + devui:pClmN + 按钮)
+    ├── 页签切换 (devui:Z70QE 或 devui:KEOhA)
+    ├── 数据表格 (devui:8K8z3)
+    └── 分页器 (devui:6gQ4a)
 ```
 
 ### 表单页
 
 ```
-头信息 (devui:Xxf4j)
+头信息 (devui:TUWxd)
 └── 表单区域
-    ├── 表单项-文本输入框 (devui:Laiht) × N
-    ├── 表单项-下拉选择框 (devui:qw7Ux) × N
-    ├── 复选框文本组合 (devui:f0TO6)
-    └── 按钮组 (devui:RoYUx + devui:qTc8e)
+    ├── 表单组件-输入框 (devui:QzXy7) × N
+    ├── 表单组件-下拉选择 (devui:lXYgx) × N
+    ├── 复选框文本组合 (devui:zEXWw)
+    └── 按钮组 (devui:mYPZF + devui:VKSqi)
 ```
 
 ### 卡片网格页
 
 ```
-顶部导航栏 (devui:Rpv7B)
-├── 侧边栏 (devui:JGEqF)
+顶部导航栏 (devui:Uexy2)
+├── 侧边栏 (devui:E36oP)
 └── 主内容区
-    ├── 头信息 (devui:Xxf4j)
+    ├── 头信息 (devui:TUWxd)
     ├── 筛选/搜索区
-    └── 卡片网格 (devui:LcKkl 或 devui:7ipso) × N
+    └── 卡片网格 (devui:9qbEz 或 devui:MBNRG) × N
 ```
 
 ---

@@ -55,7 +55,7 @@
 
 - `imports` 在文档顶层 JSON 对象中
 - key 是别名（如 `devui`），value 是从当前 .pen 文件到被导入文件的**相对路径**
-- 导入后，ref 格式为 `devui:组件ID`（如 `devui:RoYUx`）
+- 导入后，ref 格式为 `devui:组件ID`（如 `devui:mYPZF`）
 - 更新实例内子节点时，path 为 `实例ID/devui:子节点ID`
 
 ### 添加 import 流程
@@ -144,58 +144,123 @@
 
 | 组件 | ref | 变体 |
 |------|-----|------|
-| 按钮-主要/md/default | `devui:RoYUx` | Size=md, Status=default |
-| 按钮-主要/sm/default | `devui:VoApM` | Size=sm |
-| 按钮-主要/lg/default | `devui:K9tFF` | Size=lg |
-| 按钮-次要/md/default | `devui:qTc8e` | Size=md |
-| 按钮-次要/lg/default | `devui:UQ59s` | Size=lg |
-| 按钮-次要/sm/default | `devui:9auaH` | Size=sm |
-| 按钮-图标文本/md/default | `devui:hOrvp` | Size=md |
+| 按钮-主要/md/default | `devui:mYPZF` | Size=md, Status=default |
+| 按钮-主要/sm/default | `devui:Rl5jm` | Size=sm |
+| 按钮-主要/lg/default | `devui:UtovU` | Size=lg |
+| 按钮-次要/md/default | `devui:VKSqi` | Size=md |
+| 按钮-次要/lg/default | `devui:rTL5w` | Size=lg |
+| 按钮-次要/sm/default | `devui:jxhLP` | Size=sm |
+| 按钮-图标文本/md/default | `devui:6LFBN` | Size=md |
+| 按钮-图标文本/sm/default | `devui:3i79O` | Size=sm |
 
 ### 导航类
 
 | 组件 | ref | 变体 |
 |------|-----|------|
-| 页签 Tabs/number=4 | `devui:nCtvQ` | 4个选项 |
-| 页签 Tabs/number=3 | `devui:hbi7t` | 3个选项 |
-| 页签 Tabs/number=2 | `devui:6gvC2` | 2个选项 |
-| 面包屑组/number=3 | `devui:iLVzA` | 3级面包屑 |
-| 面包屑组/number=4 | `devui:jGzKJ` | 4级面包屑 |
-| 面包屑 BreadCrumbs/面包屑 | `devui:0HCYy` | 面包屑 |
+| 页签 Pills/number=2 | `devui:l9A3O` | 2个选项 |
+| 页签 Pills/number=3 | `devui:Z70QE` | 3个选项 |
+| 页签 Pills/number=4 | `devui:KEOhA` | 4个选项 |
+| 页签 Pills/number=5 | `devui:6YelH` | 5个选项 |
+| 页签 Pills/number=6 | `devui:8L4up` | 6个选项 |
+| 面包屑组/number=2 | `devui:ydEdG` | 2级面包屑 |
+| 面包屑组/number=3 | `devui:UOL0h` | 3级面包屑 |
+| 面包屑组/number=4 | `devui:yl4Dd` | 4级面包屑 |
+| 面包屑组/number=5 | `devui:EF14Z` | 5级面包屑 |
+| 面包屑组/number=6 | `devui:oNW38` | 6级面包屑 |
+| 面包屑组/ellipsis | `devui:H50rT` | 省略形式 |
 
 ### 输入类
 
 | 组件 | ref | 变体 |
 |------|-----|------|
-| 文本输入框/noContent | `devui:jmCZP` | status=noContent |
-| 文本输入框/hasContent | `devui:wSpES` | status=hasContent |
-| 搜索框-线框白底/left/default | `devui:X93Mt` | iconPosition=left, default |
+| 文本输入框/noContent | `devui:rn9tI` | status=noContent |
+| 文本输入框/hasContent | `devui:tdhOO` | status=hasContent |
+| 文本输入框/hover | `devui:uF43C` | status=hover |
+| 文本输入框/focus | `devui:OLGBd` | status=focus |
+| 搜索框/left/default | `devui:pClmN` | iconPosition=left, default-noContent |
+| 搜索框/right/default | `devui:sMfy0` | iconPosition=right, default-noContent |
+| 数字输入框/default | `devui:ko1Kw` | status=default |
+| 数字输入框/hover | `devui:hxtGb` | status=hover |
+
+### 选择类
+
+| 组件 | ref | 变体 |
+|------|-----|------|
+| 下拉选择框/default/未选/关 | `devui:zTtRm` | 默认/未选择/关闭 |
+| 下拉选择框/default/已选/关 | `devui:g8ll6` | 默认/已选择/关闭 |
+| 下拉选择框/未选/开 | `devui:LjSx5` | 带面板展开 |
+| 下拉选择框/已选/开 | `devui:zvNlm` | 带面板展开/已选 |
 
 ### 标签类
 
 | 组件 | ref | 变体 |
 |------|-----|------|
-| 标签/md/green | `devui:PXlZz` | Size=md, Color=green |
-| 标签/md/orange | `devui:qWlVQ` | Size=md, Color=orange |
-| 辅助标签/md/green | `devui:wcoqv` | Size=md, Color=green |
-| 辅助标签/md/grey | `devui:JQE2Y` | Size=md, Color=grey |
-| 常规标签/md | `devui:6LAHt` | Size=md |
+| 标签/md/green | `devui:FQ7uH` | Size=md, Color=green |
+| 标签/md/orange | `devui:97oGy` | Size=md, Color=orange |
+| 辅助标签/md/green | `devui:rS2Ar` | Size=md, Color=green |
+| 辅助标签/md/grey | `devui:6s2lw` | Size=md, Color=grey |
+| 常规标签/md | `devui:xtggI` | Size=md |
+| 常规标签/lg | `devui:BhCuI` | Size=lg |
+| 线性标签/md/green | `devui:5Uwaj` | Size=md, Color=green |
+| 线性标签/md/orange | `devui:rPKah` | Size=md, Color=orange |
+| 线性标签/md/red | `devui:DCWif` | Size=md, Color=red |
 
 ### 复选框类
 
 | 组件 | ref | 变体 |
 |------|-----|------|
-| 复选框/noChecked/default | `devui:bzYOF` | 未选中/默认 |
-| 复选框/checked/default | `devui:S2hIB` | 选中/默认 |
-| 复选框文本组合/noChecked/default | `devui:f0TO6` | 未选中/默认 |
-| 复选框文本组合/checked/default | `devui:4q9SP` | 选中/默认 |
+| 复选框文本/noChecked/default | `devui:zEXWw` | 未选中/默认 |
+| 复选框文本/checked/default | `devui:Ee6NI` | 选中/默认 |
+| 复选框文本/halfChecked/default | `devui:ORk6K` | 半选/默认 |
 
 ### 分页类
 
 | 组件 | ref | 变体 |
 |------|-----|------|
-| 分页 Pagination/跳转=false | `devui:i5IDo` | 无跳转 |
-| 分页 Pagination/跳转=true | `devui:9iCrn` | 有跳转 |
+| 分页 Pagination/跳转=false | `devui:6gQ4a` | 无跳转 |
+| 分页 Pagination/跳转=true | `devui:IRAdk` | 有跳转 |
+
+### 表格类
+
+| 组件 | ref | 变体 |
+|------|-----|------|
+| 表格/singleLine/shadow | `devui:8K8z3` | 单线/有阴影 |
+| 表格/singleLine/noShadow | `devui:BUBhb` | 单线/无阴影 |
+| 表格/withDividers/shadow | `devui:8Oq0P` | 分隔线/有阴影 |
+| 表格/withDividers/noShadow | `devui:2PPub` | 分隔线/无阴影 |
+
+### 卡片类
+
+| 组件 | ref | 变体 |
+|------|-----|------|
+| 项目卡片/默认 | `devui:9qbEz` | 状态=默认 |
+| 项目卡片/悬浮 | `devui:PyyzD` | 状态=悬浮 |
+| 基本卡片/默认 | `devui:MBNRG` | 状态=默认 |
+| 基本卡片/悬浮 | `devui:8vipZ` | 状态=悬浮 |
+| 带图卡片/默认 | `devui:HKJpB` | 状态=默认 |
+| 现网卡片/默认 | `devui:JIqzC` | 状态=默认 |
+
+### 页面框架类
+
+| 组件 | ref | 变体 |
+|------|-----|------|
+| 顶部导航/default | `devui:Uexy2` | 种类=default |
+| 顶部导航/占位 | `devui:2bjDj` | 种类=占位 |
+| 工具链侧栏/展开 | `devui:E36oP` | 展开=on |
+| 工具链侧栏/收起 | `devui:SQOb3` | 展开=off |
+| 手风琴侧边栏 | `devui:K0pVg` | 完整侧边栏 |
+| 头信息/default | `devui:TUWxd` | 默认 |
+| 头信息/search/2项 | `devui:ZU5hh` | 带搜索 |
+| 头信息/search/3项 | `devui:ju9uI` | 带搜索 |
+| 头信息/search/4项 | `devui:v7KDW` | 带搜索 |
+
+### 弹窗与步骤
+
+| 组件 | ref | 变体 |
+|------|-----|------|
+| 模态弹窗/非模态 | `devui:xbwXy` | 非模态 |
+| 模态弹窗/模态 | `devui:WJxDN` | 模态（全屏遮罩） |
+| 步骤条/横向-左右布局 | `devui:Zavv1` | 横向 |
 
 ---
 
@@ -204,20 +269,20 @@
 ### 主按钮 (Primary Button)
 
 - `cornerRadius`: [4,4,4,4], `fill`: #5e7ce0, `gap`: 4
-- Size 变体 padding: sm=[4,16,4,16], md=[5,16,5,16], lg=[8,16,8,16]
+- Size 变体 padding: sm=[3,16], md=[5,16], lg=[9,20]
 - 文字: fontSize=14, fontFamily="Noto Sans SC", fill=#ffffff
 
 ### 次按钮 (Secondary Button)
 
 - `fill`: #ffffff, `stroke`: #adb0b8 (1px inside)
-- hover: stroke=#5e7ce0, textColor=#5e7ce0
-- disabled: stroke=#dfe1e6, textColor=#babbc0
+- hover: stroke=#575d6c; active: stroke=#5e7ce0
+- disabled: fill=#f5f5f5, stroke=#dfe1e6
 
 ### 文本输入框 (TextInput)
 
 - `cornerRadius`: [4,4,4,4], `fill`: #ffffff, `stroke`: #adb0b8 (1px), `height`: 32
-- 文字: fontSize=14, padding=[5,12]
-- focus: stroke=#5e7ce0, danger: stroke=#f66f6a, disabled: fill=#f5f5f5, stroke=#dfe1e6
+- 文字: fontSize=14, padding=[5,8]
+- focus: stroke=#5e7ce0, danger: stroke=#f66f6a, disabled: fill=#f3f3f3, stroke=#dfe1e6
 
 ### 复选框 (Checkbox)
 
