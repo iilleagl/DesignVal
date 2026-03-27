@@ -1,0 +1,14 @@
+# 与 custom_callbacks.py 同目录启动（保证能 import custom_callbacks）:
+#   cd litellm-gateway && litellm --config litellm_config.yaml
+#
+# 环境变量示例:
+#   export OPENAI_API_KEY=sk-...   # 与下方 model 提供商一致
+
+model_list:
+  - model_name: gpt-4o
+    litellm_params:
+      model: gpt-4o
+      api_key: os.environ/OPENAI_API_KEY
+
+litellm_settings:
+  callbacks: custom_callbacks.proxy_handler_instance
